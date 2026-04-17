@@ -8,11 +8,11 @@
     --light-bg: #f4f7f9;
     --text-dark: #333;
     --white: #ffffff;
-    --shadow: 0 4px 15px rgba(0,0,0,0.1);
+    --shadow: 0 4px 20px rgba(0,0,0,0.08);
 }
 
 body {
-    font-family: 'Segoe UI', Roboto, sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
     background-color: var(--light-bg);
     color: var(--text-dark);
@@ -26,7 +26,7 @@ body {
 }
 
 /* =========================================
-   2. HEADER & NAVIGATION
+   2. HEADER & STICKY NAVIGATION
    ========================================= */
 header {
     background: var(--primary-blue);
@@ -47,6 +47,7 @@ header {
     font-size: 1.5rem;
     font-weight: bold;
     color: white;
+    text-decoration: none;
 }
 
 nav ul {
@@ -62,10 +63,11 @@ nav ul li a {
     text-decoration: none;
     font-weight: 500;
     position: relative;
+    padding: 5px 0;
     transition: 0.3s;
 }
 
-/* Hover & Active States */
+/* Active & Hover States */
 nav ul li a:hover, 
 nav ul li a.active {
     color: var(--brand-green);
@@ -76,7 +78,7 @@ nav ul li a::after {
     position: absolute;
     width: 0;
     height: 2px;
-    bottom: -5px;
+    bottom: 0;
     left: 0;
     background-color: var(--brand-green);
     transition: 0.3s;
@@ -88,30 +90,30 @@ nav ul li a.active::after {
 }
 
 /* =========================================
-   3. HERO SECTIONS (Home, Tracking, Contact)
+   3. HERO SECTIONS
    ========================================= */
 .tracking-hero, .contact-hero, .services-hero {
     background: var(--primary-blue);
-    padding: 80px 0;
+    padding: 80px 0 120px 0; /* Extra bottom padding for the "overlap" look */
     color: white;
     text-align: center;
 }
 
 /* =========================================
-   4. TRACKING COMPONENT
+   4. TRACKING BOX (OVERLAP DESIGN)
    ========================================= */
 .tracking-main-box {
     background: white;
     padding: 40px;
     border-radius: 12px;
     max-width: 700px;
-    margin: -50px auto 0; /* Pulls box slightly into the hero */
+    margin: -60px auto 40px; /* Pulls the box up into the blue hero */
     box-shadow: 0 15px 35px rgba(0,0,0,0.15);
 }
 
 .tracking-form {
     display: flex;
-    gap: 0;
+    width: 100%;
 }
 
 .tracking-form input {
@@ -119,6 +121,7 @@ nav ul li a.active::after {
     padding: 18px;
     border: 1px solid #ddd;
     border-radius: 5px 0 0 5px;
+    font-size: 1rem;
     outline: none;
 }
 
@@ -130,29 +133,19 @@ nav ul li a.active::after {
     border-radius: 0 5px 5px 0;
     font-weight: bold;
     cursor: pointer;
-    display: flex;
-    align-items: center;
+    transition: 0.3s;
 }
 
-/* Spinner */
-.spinner {
-    display: none;
-    width: 20px;
-    height: 20px;
-    border: 3px solid rgba(255,255,255,0.3);
-    border-top: 3px solid white;
-    border-radius: 50%;
-    animation: spin 1s linear infinite;
-    margin-left: 10px;
+.tracking-form button:hover {
+    background: #218838;
 }
-
-@keyframes spin { 100% { transform: rotate(360deg); } }
-.loading .spinner { display: inline-block; }
 
 /* =========================================
-   5. CONTACT PAGE LAYOUT (The Wrapper)
+   5. CONTACT PAGE & FORM LAYOUT
    ========================================= */
-.contact-body { padding: 80px 0; }
+.contact-body {
+    padding: 60px 0;
+}
 
 .contact-wrapper {
     display: grid;
@@ -164,49 +157,110 @@ nav ul li a.active::after {
     box-shadow: var(--shadow);
 }
 
-.form-field { margin-bottom: 20px; }
-.form-field label { display: block; font-weight: bold; margin-bottom: 5px; color: var(--primary-blue); }
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
 
-.main-contact-form input, 
-.main-contact-form textarea, 
-.form-select {
+.form-field {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.form-field label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: var(--primary-blue);
+    font-size: 0.9rem;
+}
+
+input, select, textarea {
     width: 100%;
-    padding: 15px;
+    padding: 14px;
     border: 1px solid #ddd;
     border-radius: 6px;
-    box-sizing: border-box;
+    box-sizing: border-box; /* Crucial for alignment */
+    font-size: 1rem;
 }
 
 .btn-primary.full-width {
     width: 100%;
-    padding: 15px;
+    padding: 16px;
     background: var(--primary-blue);
     color: white;
     border: none;
     border-radius: 6px;
     font-weight: bold;
+    font-size: 1rem;
     cursor: pointer;
+    transition: 0.3s;
 }
 
-.btn-primary.full-width:hover { background: var(--brand-green); }
+.btn-primary.full-width:hover {
+    background: var(--brand-green);
+}
 
 /* =========================================
-   6. FOOTER
+   6. CONTACT INFO BOX
+   ========================================= */
+.contact-info-container {
+    background: var(--light-bg);
+    padding: 30px;
+    border-radius: 12px;
+    text-align: left;
+}
+
+.info-item {
+    margin-bottom: 25px;
+}
+
+.info-item strong {
+    color: var(--primary-blue);
+    display: block;
+    margin-bottom: 5px;
+}
+
+/* =========================================
+   7. FOOTER
    ========================================= */
 footer {
     background: #1a1a1a;
     color: white;
-    padding: 40px 0;
-    margin-top: 60px;
+    padding: 50px 0;
     text-align: center;
 }
 
 /* =========================================
-   7. MOBILE RESPONSIVENESS
+   8. MOBILE RESPONSIVE FIXES
    ========================================= */
 @media (max-width: 768px) {
-    .header-flex { flex-direction: column; gap: 15px; }
-    .contact-wrapper { grid-template-columns: 1fr; padding: 20px; }
-    .tracking-form { flex-direction: column; }
-    .tracking-form input, .tracking-form button { border-radius: 5px; }
+    .header-flex {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .contact-wrapper {
+        grid-template-columns: 1fr;
+        padding: 20px;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+
+    .tracking-form {
+        flex-direction: column;
+    }
+
+    .tracking-form input {
+        border-radius: 5px;
+        margin-bottom: 10px;
+    }
+
+    .tracking-form button {
+        border-radius: 5px;
+        width: 100%;
+    }
 }
