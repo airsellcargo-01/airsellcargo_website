@@ -15,3 +15,29 @@ nav a {
 nav a:hover {
   text-decoration: underline;
 }
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+nav {
+  background-color: #004080;
+  padding: 10px;
+}
+
+nav a {
+  color: white;
+  margin: 0 15px;
+  text-decoration: none;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+h1 {
+  color: #004080;
+  text-align: center;
+  margin-top: 40px;
+}
