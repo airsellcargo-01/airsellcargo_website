@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Track Shipment | Airsell Cargo</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <div class="container header-flex">
+            <div class="logo"><span class="brand-red">Air</span><span class="brand-green">sell</span> Cargo</div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="tracking.html" class="active">Tracking</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="tracking-hero">
+            <div class="container">
+                <h1>Track Your Cargo</h1>
+                <p>Monitor your shipment from Hargeisa to the world in real-time.</p>
+                
+                <div class="tracking-main-box">
+                    <form class="tracking-form" id="main-track-form">
+                        <input type="text" placeholder="Enter Airway Bill (e.g., ASL-123456)" required>
+                        <button type="submit" id="track-btn">
+                            <span class="btn-text">Track Now</span>
+                            <div class="spinner" id="spinner"></div>
+                        </button>
+                    </form>
+                    <p class="tracking-note">Separate multiple tracking numbers with a comma.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="tracking-results" class="container" style="display: none; padding: 50px 0;">
+            <div class="status-card">
+                <div class="status-header">
+                    <h3>Shipment: <span id="awb-display">ASL-123456</span></h3>
+                    <span class="badge">In Transit</span>
+                </div>
+                <div class="status-timeline">
+                    <div class="step completed">
+                        <div class="circle"></div>
+                        <div class="content"><strong>Manifest Created</strong> <br>Hargeisa Office</div>
+                    </div>
+                    <div class="step active">
+                        <div class="circle"></div>
+                        <div class="content"><strong>Departed Hargeisa (HGA)</strong> <br>In Flight</div>
+                    </div>
+                    <div class="step">
+                        <div class="circle"></div>
+                        <div class="content"><strong>Destination Arrival</strong> <br>Pending</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Airsell Cargo. Logistics Excellence in Somaliland.</p>
+        </div>
+    </footer>
+
+    <script>
+        const form = document.getElementById('main-track-form');
+        const results = document.getElementById('tracking-results');
+        const btn = document.getElementById('track-btn');
+
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            btn.classList.add('loading');
+            
+            // Simulate 1.5 seconds of searching our database
+            setTimeout(() => {
+                btn.classList.remove('loading');
+                results.style.display = 'block';
+                window.scrollTo({ top: results.offsetTop - 100, behavior: 'smooth' });
+            }, 1500);
+        });
+    </script>
+</body>
+</html>
