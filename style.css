@@ -230,6 +230,23 @@ footer {
         grid-template-columns: 1fr;
         text-align: center;
     }
+    /* --- ADD THIS TO STYLE.CSS --- */
+.contact-wrapper {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 40px;
+    background: white;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+}
+
+/* Mobile Fix: Stack them when the screen is small */
+@media (max-width: 768px) {
+    .contact-wrapper {
+        grid-template-columns: 1fr;
+    }
+}
     /* 8. Contact Section Styles */
 .contact-section {
     padding: 80px 0;
