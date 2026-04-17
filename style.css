@@ -82,6 +82,37 @@ body {
     .tracking-form input, .tracking-form button {
         border-radius: 5px;
     }
+    /* Spinner Styles */
+.spinner {
+    display: none; /* Hidden by default */
+    width: 20px;
+    height: 20px;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-top: 3px solid white;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-left: 10px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* When the button is "loading", show the spinner and change layout */
+.loading .spinner {
+    display: inline-block;
+}
+
+.loading .btn-text {
+    opacity: 0.7;
+}
+
+.tracking-form button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 }
 /* Header & Nav */
 header {
