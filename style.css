@@ -20,7 +20,69 @@ body {
     margin: 0 auto;
     padding: 0 20px;
 }
+/* Tracking Section Background */
+.tracking-cta {
+    background-color: #002e5d; /* Matches your header navy blue */
+    padding: 80px 0;
+    color: white;
+    text-align: center;
+}
 
+.tracking-box h2 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.tracking-box p {
+    margin-bottom: 30px;
+    opacity: 0.9;
+}
+
+/* The Input and Button Row */
+.tracking-form {
+    display: flex;
+    justify-content: center;
+    gap: 0; /* Keeps input and button joined */
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.tracking-form input {
+    flex: 1;
+    padding: 18px 25px;
+    border: none;
+    border-radius: 5px 0 0 5px; /* Rounded corners only on the left */
+    font-size: 1rem;
+    outline: none;
+}
+
+.tracking-form button {
+    padding: 18px 40px;
+    background-color: #28a745; /* Your brand green */
+    color: white;
+    border: none;
+    border-radius: 0 5px 5px 0; /* Rounded corners only on the right */
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.tracking-form button:hover {
+    background-color: #218838; /* Slightly darker green on hover */
+}
+
+/* Mobile Responsive adjustment */
+@media (max-width: 600px) {
+    .tracking-form {
+        flex-direction: column;
+        gap: 10px;
+        padding: 0 20px;
+    }
+    .tracking-form input, .tracking-form button {
+        border-radius: 5px;
+    }
+}
 /* Header & Nav */
 header {
     background: var(--primary-blue);
