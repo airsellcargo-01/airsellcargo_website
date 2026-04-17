@@ -69,6 +69,28 @@
         </div>
     </div>
 </footer>
+<script>
+    const trackForm = document.querySelector('.tracking-form');
+    const trackBtn = document.getElementById('track-btn');
+    const spinner = document.getElementById('spinner');
 
+    trackForm.addEventListener('submit', function(e) {
+        e.preventDefault(); // Stop page from refreshing
+        
+        // Start Loading State
+        trackBtn.classList.add('loading');
+        trackBtn.disabled = true;
+
+        // Simulate a database search (2 seconds)
+        // In the future, you will replace this with your actual data search
+        setTimeout(() => {
+            alert("Searching Airsell Manifest System for: " + trackForm.querySelector('input').value);
+            
+            // End Loading State
+            trackBtn.classList.remove('loading');
+            trackBtn.disabled = false;
+        }, 2000);
+    });
+</script>
 </body>
 </html>
