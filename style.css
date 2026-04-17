@@ -1,43 +1,109 @@
-nav {
-  background-color: #004080; /* Airsell brand color */
-  padding: 10px;
-  display: flex;
-  justify-content: center;
+/* Color Palette */
+:root {
+    --primary-blue: #002e5d;
+    --brand-green: #28a745;
+    --brand-red: #dc3545;
+    --light-bg: #f4f7f9;
+    --text-dark: #333;
+    --white: #ffffff;
 }
 
-nav a {
-  color: white;
-  text-decoration: none;
-  margin: 0 15px;
-  font-weight: bold;
-}
-
-nav a:hover {
-  text-decoration: underline;
-}
 body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
+    font-family: 'Segoe UI', Roboto, sans-serif;
+    margin: 0;
+    background-color: var(--light-bg);
+    color: var(--text-dark);
 }
 
-nav {
-  background-color: #004080;
-  padding: 10px;
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header & Nav */
+header {
+    background: var(--primary-blue);
+    padding: 1rem 0;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.header-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: white;
+}
+
+.brand-red { color: var(--brand-red); }
+.brand-green { color: var(--brand-green); }
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
 }
 
 nav a {
-  color: white;
-  margin: 0 15px;
-  text-decoration: none;
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    transition: 0.3s;
 }
 
-nav a:hover {
-  text-decoration: underline;
+nav a:hover { color: var(--brand-green); }
+
+/* Service Grid Layout */
+.services-section {
+    padding: 60px 0;
+    text-align: center;
 }
 
-h1 {
-  color: #004080;
-  text-align: center;
-  margin-top: 40px;
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.service-card {
+    background: var(--white);
+    padding: 40px 30px;
+    border-radius: 10px;
+    border-bottom: 4px solid var(--brand-green);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+}
+
+.service-card h3 {
+    color: var(--primary-blue);
+    margin-bottom: 15px;
+}
+
+/* Professional Footer */
+footer {
+    background: #1a1a1a;
+    color: white;
+    padding: 40px 0;
+    margin-top: 60px;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 50px;
+}
+
+.contact-info p {
+    margin: 5px 0;
+    opacity: 0.8;
 }
