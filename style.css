@@ -104,7 +104,52 @@ header {
 
 .brand-red { color: var(--brand-red); }
 .brand-green { color: var(--brand-green); }
+/* Navigation Link Styles */
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+    margin: 0;
+    padding: 0;
+}
 
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 500;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+/* Hover Effect: Text turns Green */
+nav ul li a:hover {
+    color: var(--brand-green, #28a745);
+}
+
+/* The Underline Animation */
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: var(--brand-green, #28a745);
+    transition: width 0.3s ease;
+}
+
+nav ul li a:hover::after {
+    width: 100%;
+}
+
+/* Active Page State */
+nav ul li a.active {
+    color: var(--brand-green, #28a745);
+}
+nav ul li a.active::after {
+    width: 100%;
+}
 nav ul {
     list-style: none;
     display: flex;
