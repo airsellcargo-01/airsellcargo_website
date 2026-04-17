@@ -315,4 +315,65 @@ footer {
         gap: 0;
     }
 }
+    /* Contact Page Specifics */
+.contact-hero {
+    background: var(--primary-blue);
+    padding: 80px 0;
+    color: white;
+    text-align: center;
+}
+
+.contact-body {
+    padding: 80px 0;
+    background: var(--white);
+}
+
+.contact-flex {
+    display: flex;
+    gap: 60px;
+    align-items: flex-start;
+}
+
+.contact-form-container {
+    flex: 1.5; /* Gives the form more space */
+}
+
+.contact-info-container {
+    flex: 1;
+    background: var(--light-bg);
+    padding: 40px;
+    border-radius: 12px;
+}
+
+/* Form Styling Refinement */
+.form-select {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: white;
+}
+
+.info-block {
+    margin: 30px 0;
+}
+
+.info-item {
+    margin-bottom: 25px;
+}
+
+.info-item strong {
+    display: block;
+    color: var(--primary-blue);
+    margin-bottom: 5px;
+}
+
+.map-box {
+    background: #e9ecef;
+    padding: 20px;
+    border-left: 4px solid var(--brand-green);
+    font-size: 0.9rem;
+    color: #555;
+}
 }
