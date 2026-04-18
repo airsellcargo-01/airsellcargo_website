@@ -1,9 +1,91 @@
+/* =========================================
+   1. BRAND COLOR PALETTE & GLOBAL SETTINGS
+   ========================================= */
+:root {
+    --brand-red: #dc3545;
+    --brand-yellow: #ffc107;
+    --brand-green: #28a745;
+    --primary-dark: #1a1a1a;
+    --light-bg: #f8fafc;
+    --text-dark: #1e293b;
+    --white: #ffffff;
+    --card-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+}
+
+* { box-sizing: border-box; }
+
+body {
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    margin: 0;
+    background-color: var(--light-bg);
+    color: var(--text-dark);
+}
+
+/* Standard container to keep content centered */
 .container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
     width: 100%;
 }
+
+/* =========================================
+   2. HEADER & NAVIGATION (LOGO LEFT, NAV RIGHT)
+   ========================================= */
+header {
+    background: var(--primary-dark);
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 4px solid var(--brand-yellow);
+}
+
+.header-flex {
+    display: flex;
+    justify-content: space-between; /* This pushes Logo Left and Nav Right */
+    align-items: center;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 32px; /* Space between links */
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+nav ul li a:hover, 
+nav ul li a.active {
+    color: var(--brand-yellow);
+}
+
+.logo {
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: white;
+}
+
+.brand-red { color: var(--brand-red); }
+.brand-green { color: var(--brand-green); }
+
+/* =========================================
+   3. SERVICES GRID & HERO
+   ========================================= */
+.services-hero {
+    background: var(--primary-dark);
+    padding: 60px 0;
+    color: white;
+    text-align: center;
+}
+
 .services-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -11,3 +93,35 @@
     margin-top: 40px;
 }
 
+.service-card {
+    background: var(--white);
+    padding: 40px;
+    border-radius: 16px;
+    box-shadow: var(--card-shadow);
+    text-align: center;
+    border-top: 6px solid transparent;
+}
+
+.service-card:nth-child(1) { border-top-color: var(--brand-red); }
+.service-card:nth-child(2) { border-top-color: var(--brand-yellow); }
+.service-card:nth-child(3) { border-top-color: var(--brand-green); }
+
+/* =========================================
+   4. TRACKING & FOOTER
+   ========================================= */
+.tracking-main-box {
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    margin-top: -40px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+
+footer {
+    background: var(--primary-dark);
+    color: white;
+    padding: 40px 0;
+    text-align: center;
+    border-top: 4px solid var(--brand-green);
+    margin-top: 60px;
+}
