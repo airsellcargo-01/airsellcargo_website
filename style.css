@@ -32,6 +32,27 @@ header {
     z-index: 1000;
     border-bottom: 4px solid var(--brand-yellow); /* Yellow brand accent */
 }
+/* Container for the header content */
+.header-flex {
+    display: flex;               /* Makes children sit side-by-side */
+    justify-content: space-between; /* Pushes Logo to Left, Nav to Right */
+    align-items: center;         /* Centers them vertically */
+    padding: 10px 0;
+}
+
+/* Remove default list styling for the menu */
+nav ul {
+    display: flex;               /* Makes <li> items sit side-by-side */
+    list-style: none;            /* Removes bullet points */
+    margin: 0;
+    padding: 0;
+    gap: 20px;                   /* Space between links */
+}
+
+nav ul li a {
+    text-decoration: none;       /* Removes underline */
+    font-weight: bold;
+}
 
 .logo {
     font-size: 1.6rem;
