@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Airsell Cargo | Professional Freight Forwarding</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Services | Airsell Cargo</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -10,91 +11,78 @@
 <header>
     <div class="container header-flex">
         <div class="logo"><span class="brand-red">Air</span><span class="brand-green">sell</span> Cargo</div>
-    <nav>
-    <ul>
-        <li><a href="index.html">Home</a></li> 
-        
-        <li><a href="services.html" class="active">Services</a></li> 
-        
-        <li><a href="index.html#tracking">Tracking</a></li> 
-        
-        <li><a href="#contact">Contact</a></li>
-    </ul>
-</nav>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li> 
+                <li><a href="services.html" class="active">Services</a></li> 
+                <li><a href="tracking.html">Tracking</a></li> 
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+        </nav>
     </div>
 </header>
 
-<main class="container services-section">
-    <h1>Our Logistics Services</h1>
-    <p>Connecting Hargeisa Airport and Berbera Port to the world.</p>
+<main class="container">
+    <section class="services-hero">
+        <h1>Our Logistics Services</h1>
+        <p>Connecting Hargeisa Airport and Berbera Port to the world with precision.</p>
+    </section>
 
     <div class="services-grid">
         <div class="service-card">
             <h3>✈️ Air Cargo</h3>
-            <p>Reliable air freight solutions through Hargeisa Airport. We specialize in fast, secure delivery for SMEs.</p>
+            <p>Reliable air freight solutions through Hargeisa Airport. We specialize in fast, secure delivery for SME exports worldwide.</p>
         </div>
 
         <div class="service-card">
             <h3>🚢 Sea Cargo</h3>
-            <p>Cost-effective shipping via Berbera Port. Full container and LCL options with end-to-end tracking.</p>
+            <p>Cost-effective shipping via Berbera Port. Full container (FCL) and LCL options with end-to-end tracking systems.</p>
         </div>
 
-        <div class="service-card" style="border-bottom-color: var(--brand-red);">
-            <h3>📜 Customs Clearance Services </h3>
-            <p>Professional handling of customs clearance Services and documentation for seamless transit.</p>
+        <div class="service-card">
+            <h3>📜 Customs Clearance</h3>
+            <p>Professional handling of digital documentation and customs clearance for seamless transit through Somaliland borders.</p>
         </div>
     </div>
 </main>
 
-<section class="tracking-cta">
-    <div class="container tracking-box">
-        <h2>Track Your Shipment</h2>
-        <p>Enter your Airway Bill or Container Number below for real-time updates.</p>
-        <form class="tracking-form">
-            <input type="text" placeholder="e.g., ASL-12345678" required>
-            <button type="submit">Track Now</button>
-        </form>
+<section style="background: var(--light-bg); padding: 60px 0; text-align: center;">
+    <div class="container">
+        <h2>Ready to move your cargo?</h2>
+        <p>Use our manifest system to track your current shipments in real-time.</p>
+        <a href="tracking.html" class="btn-primary" style="text-decoration: none; display: inline-block; margin-top: 20px;">Go to Tracking</a>
     </div>
 </section>
 
 <footer>
-
-<footer>
     <div class="container footer-grid">
-        <div>
-            <h4>Airsell Cargo</h4>
-            <p>A leading non-IATA freight forwarding agent based in Hargeisa, committed to modernizing Somalia's logistics.</p>
+        <div class="footer-column">
+            <div class="logo"><span class="brand-red">Air</span><span class="brand-green">sell</span> Cargo</div>
+            <p>A leading freight forwarding agent based in Hargeisa, committed to modernizing logistics through digital infrastructure.</p>
         </div>
-        <div class="contact-info">
+
+        <div class="footer-column">
+            <h4>Quick Links</h4>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="services.html">Our Services</a></li>
+                <li><a href="tracking.html">Track Shipment</a></li>
+                <li><a href="index.html#contact">Get a Quote</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-column">
             <h4>Contact Details</h4>
+            <p>📍 Airsell Cargo Building, Hargeisa</p>
             <p>📧 info@airsellcargo.com</p>
-            <p>📍 Hargeisa, Somaliland</p>
-          <p>Whatsapp Number: +252-63-482-3310</p>
+            <p>📞 +252-63-482-3310</p>
         </div>
     </div>
+    
+    <div class="footer-bottom">
+        <p>&copy; 2026 Airsell Cargo. All rights reserved. | Hargeisa, Somaliland</p>
+    </div>
 </footer>
-<script>
-    const trackForm = document.querySelector('.tracking-form');
-    const trackBtn = document.getElementById('track-btn');
-    const spinner = document.getElementById('spinner');
 
-    trackForm.addEventListener('submit', function(e) {
-        e.preventDefault(); // Stop page from refreshing
-        
-        // Start Loading State
-        trackBtn.classList.add('loading');
-        trackBtn.disabled = true;
-
-        // Simulate a database search (2 seconds)
-        // In the future, you will replace this with your actual data search
-        setTimeout(() => {
-            alert("Searching Airsell Manifest System for: " + trackForm.querySelector('input').value);
-            
-            // End Loading State
-            trackBtn.classList.remove('loading');
-            trackBtn.disabled = false;
-        }, 2000);
-    });
-</script>
 </body>
 </html>
