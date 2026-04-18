@@ -2,10 +2,10 @@
    1. BRAND COLOR PALETTE & GLOBAL SETTINGS
    ========================================= */
 :root {
-    --brand-red: #dc3545;    /* Air Cargo / Urgency */
-    --brand-yellow: #ffc107; /* Navigation Highlights */
-    --brand-green: #28a745;  /* Sea Cargo / Success / Tracking */
-    --primary-dark: #334155;
+    --brand-red: #dc3545;
+    --brand-yellow: #ffc107;
+    --brand-green: #28a745;
+    --primary-dark: #1e293b; /* This is the Deep Navy Blue */
     --light-bg: #f8fafc;
     --text-dark: #1e293b;
     --white: #ffffff;
