@@ -22,70 +22,89 @@
     </div>
 </header>
 
-<main class="container">
-    <section class="tracking-hero">
-        <h1>Global Shipment Tracking</h1>
-        <p>Monitor your cargo from Hargeisa to the world.</p>
+<main>
+    <section class="services-hero">
+        <div class="container">
+            <h1>Global Shipment Tracking</h1>
+            <p>Monitor your cargo from Hargeisa to the world via our manifest system.</p>
+        </div>
     </section>
 
-    <div class="tracking-main-box">
-        <h3>Enter Tracking Number</h3>
-        <form class="tracking-form" id="main-track-form">
-            <input type="text" id="awb-input" placeholder="e.g., ASL-8829104" required>
-            <button type="submit" id="track-btn">Track Now</button>
-        </form>
+    <div class="container" style="padding: 60px 0;">
+        <div class="tracking-main-box" style="background: white; padding: 40px; border-radius: 12px; box-shadow: var(--card-shadow); max-width: 800px; margin: 0 auto; text-align: center;">
+            <h3 style="margin-top: 0; color: var(--primary-dark);">Enter Tracking Number</h3>
+            <p style="color: #64748b; margin-bottom: 25px;">Enter your Airway Bill (AWB) to see real-time updates.</p>
+            
+            <form class="tracking-form" id="main-track-form" style="display: flex; gap: 10px; justify-content: center;">
+                <input type="text" id="awb-input" placeholder="e.g., ASL-8829104" required style="flex: 1; max-width: 400px; margin: 0;">
+                <button type="submit" id="track-btn" class="btn-primary" style="background: var(--brand-green);">Track Now</button>
+            </form>
 
-        <div id="tracking-result" style="display: none; margin-top: 30px;">
-            <div class="tracking-result-card">
-                <div class="tracking-header">
-                    <small>Shipment ID:</small>
-                    <h2 id="display-awb"></h2>
-                </div>
-                
-                <div class="status-timeline">
-                    <div class="status-step completed">✅ Booked</div>
-                    <div class="status-step completed">✅ In Transit</div>
-                    <div class="status-step active">✈️ Arrived at Hub (Dubai)</div>
-                    <div class="status-step">🏁 Final Delivery</div>
-                </div>
+            <div id="tracking-result" style="display: none; margin-top: 40px; text-align: left;">
+                <div class="tracking-result-card" style="border-left: 8px solid var(--brand-green); background: #f8fafc; padding: 30px; border-radius: 8px;">
+                    <div class="tracking-header" style="border-bottom: 1px solid #e2e8f0; padding-bottom: 15px; margin-bottom: 20px;">
+                        <small style="color: #64748b; text-transform: uppercase; font-weight: bold;">Shipment ID:</small>
+                        <h2 id="display-awb" style="margin: 5px 0; color: var(--primary-dark);"></h2>
+                    </div>
+                    
+                    <div class="status-timeline">
+                        <div class="status-step completed">✅ Booked - Hargeisa (HGA)</div>
+                        <div class="status-step completed">✅ In Transit - Ethiopian Cargo</div>
+                        <div class="status-step active" style="font-weight: bold; color: var(--primary-dark);">✈️ Arrived at Hub (Dubai DXB)</div>
+                        <div class="status-step">🕒 Final Delivery</div>
+                    </div>
 
-                <div class="tracking-details">
-                    <p><strong>Current Location:</strong> Dubai Hub (DXB)</p>
-                    <p><strong>Estimated Arrival:</strong> <span class="brand-red">22nd April 2026</span></p>
+                    <div class="tracking-details" style="margin-top: 25px; padding-top: 20px; border-top: 1px solid #e2e8f0;">
+                        <p><strong>Current Location:</strong> Dubai Hub (DXB)</p>
+                        <p><strong>Estimated Arrival:</strong> <span class="brand-red" style="font-weight: bold;">22nd April 2026</span></p>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </main>
 
+<footer>
+    <div class="container footer-grid">
+        <div class="footer-column">
+            <div class="logo"><span class="brand-red">Air</span><span class="brand-green">sell</span> Cargo</div>
+            <p>Professional freight forwarding and digital manifest tracking based in Hargeisa.</p>
+        </div>
+        <div class="footer-column">
+            <h4>Support</h4>
+            <p>📍 Hargeisa, Somaliland</p>
+            <p>📧 airsellcargo@gmail.com</p>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2026 Airsell Cargo. All rights reserved. | Powered by Airsell Manifest System</p>
+    </div>
+</footer>
+
 <script>
     const trackForm = document.getElementById('main-track-form');
     const resultArea = document.getElementById('tracking-result');
     const displayAwb = document.getElementById('display-awb');
+    const trackBtn = document.getElementById('track-btn');
 
     trackForm.addEventListener('submit', function(e) {
         e.preventDefault();
         const inputValue = document.getElementById('awb-input').value;
         
-        // Show the results
-        displayAwb.innerText = inputValue;
-        resultArea.style.display = 'block';
+        // Add a small loading effect
+        trackBtn.innerText = "Searching...";
+        trackBtn.style.opacity = "0.7";
         
-        // Scroll to result smoothly
-        resultArea.scrollIntoView({ behavior: 'smooth' });
+        setTimeout(() => {
+            displayAwb.innerText = inputValue;
+            resultArea.style.display = 'block';
+            trackBtn.innerText = "Track Now";
+            trackBtn.style.opacity = "1";
+            
+            // Scroll to result smoothly
+            resultArea.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }, 800);
     });
-</script>
-
-<footer>
-    <div class="container footer-grid">
-        </div>
-    <div class="footer-bottom">
-        <p>&copy; 2026 Airsell Cargo. All rights reserved. | 1st Floor, Hargeisa, Somaliland</p>
-    </div>
-</footer>
-
-<script>
-    /* Your JavaScript for the tracking logic stays here */
 </script>
 </body>
 </html>
