@@ -27,3 +27,28 @@
         <p><strong>Estimated Arrival:</strong> 22nd April 2026</p>
     </div>
 </div>
+<script>
+    const form = document.getElementById('tracking-page-form');
+    const output = document.getElementById('tracking-output');
+    const btn = document.getElementById('track-btn');
+
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // Add loading state
+        btn.parentElement.classList.add('loading');
+        btn.disabled = true;
+
+        // Simulate a 1.5s delay to "find" the shipment
+        setTimeout(() => {
+            btn.parentElement.classList.remove('loading');
+            btn.disabled = false;
+            
+            // Show the result
+            output.style.display = 'block';
+            
+            // Smooth scroll to the result
+            output.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }, 1500);
+    });
+</script>
