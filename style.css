@@ -2,9 +2,9 @@
    1. BRAND COLOR PALETTE & GLOBAL SETTINGS
    ========================================= */
 :root {
-    --brand-red: #dc3545;
-    --brand-yellow: #ffc107;
-    --brand-green: #28a745;
+    --brand-red: #dc3545;    /* Air Cargo / Urgency */
+    --brand-yellow: #ffc107; /* Navigation Highlights */
+    --brand-green: #28a745;  /* Sea Cargo / Success / Tracking */
     --primary-dark: #1a1a1a;
     --light-bg: #f8fafc;
     --text-dark: #1e293b;
@@ -19,9 +19,9 @@ body {
     margin: 0;
     background-color: var(--light-bg);
     color: var(--text-dark);
+    line-height: 1.6;
 }
 
-/* Standard container to keep content centered */
 .container {
     max-width: 1200px;
     margin: 0 auto;
@@ -43,7 +43,7 @@ header {
 
 .header-flex {
     display: flex;
-    justify-content: space-between; /* This pushes Logo Left and Nav Right */
+    justify-content: space-between;
     align-items: center;
 }
 
@@ -52,7 +52,7 @@ nav ul {
     list-style: none;
     margin: 0;
     padding: 0;
-    gap: 32px; /* Space between links */
+    gap: 32px;
 }
 
 nav ul li a {
@@ -77,11 +77,11 @@ nav ul li a.active {
 .brand-green { color: var(--brand-green); }
 
 /* =========================================
-   3. SERVICES GRID & HERO
+   3. HERO & SERVICE CARDS
    ========================================= */
 .services-hero {
     background: var(--primary-dark);
-    padding: 60px 0;
+    padding: 80px 0;
     color: white;
     text-align: center;
 }
@@ -107,21 +107,72 @@ nav ul li a.active {
 .service-card:nth-child(3) { border-top-color: var(--brand-green); }
 
 /* =========================================
-   4. TRACKING & FOOTER
+   4. FORMS & INPUTS (TRACKING & CONTACT)
    ========================================= */
-.tracking-main-box {
-    background: white;
-    padding: 40px;
-    border-radius: 20px;
-    margin-top: -40px;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+input[type="text"], 
+input[type="email"], 
+textarea {
+    width: 100%;
+    padding: 14px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+    background: #fff;
 }
 
+input:focus, textarea:focus {
+    border-color: var(--brand-yellow);
+    outline: none;
+    box-shadow: 0 0 5px rgba(255, 193, 7, 0.3);
+}
+
+.btn-primary, #track-btn {
+    background: var(--brand-green);
+    color: white;
+    padding: 14px 28px;
+    border: none;
+    border-radius: 8px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.3s;
+    width: auto;
+}
+
+.btn-primary:hover, #track-btn:hover {
+    background: var(--brand-red);
+}
+
+/* =========================================
+   5. CONTACT SECTION LAYOUT
+   ========================================= */
+.contact-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 50px;
+    margin-top: 40px;
+}
+
+.contact-form-container, .contact-info-container {
+    flex: 1;
+    min-width: 320px;
+}
+
+.info-item {
+    margin-bottom: 25px;
+    padding: 15px;
+    background: #fff;
+    border-radius: 8px;
+}
+
+/* =========================================
+   6. FOOTER
+   ========================================= */
 footer {
     background: var(--primary-dark);
     color: white;
-    padding: 40px 0;
+    padding: 60px 0;
     text-align: center;
     border-top: 4px solid var(--brand-green);
-    margin-top: 60px;
+    margin-top: 80px;
 }
