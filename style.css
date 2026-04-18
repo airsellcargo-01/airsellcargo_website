@@ -147,12 +147,16 @@ input:focus, textarea:focus {
    5. CONTACT SECTION LAYOUT
    ========================================= */
 .contact-wrapper {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: 2fr 1fr; /* Form is wider than the address info */
     gap: 50px;
-    margin-top: 40px;
 }
 
+@media (max-width: 768px) {
+    .contact-wrapper {
+        grid-template-columns: 1fr; /* Stacks vertically on mobile phones */
+    }
+}
 .contact-form-container, .contact-info-container {
     flex: 1;
     min-width: 320px;
