@@ -26,11 +26,11 @@
     <div class="container">
         <h1>Your Gateway to Global Logistics</h1>
         <p>Connecting Hargeisa Airport and Berbera Port to the world with precision and trust.</p>
+        <a href="tracking.html" class="btn-primary" style="text-decoration: none; display: inline-block; margin-top: 20px; background: var(--brand-yellow); color: var(--primary-dark);">Track a Shipment</a>
     </div>
 </section>
 
-    
-<main class="container services-section">
+<main class="container" style="padding: 60px 0;">
     <div class="services-grid">
         <div class="service-card">
             <h3>✈️ Air Cargo</h3>
@@ -43,106 +43,82 @@
         </div>
 
         <div class="service-card">
-            <h3>📜 Customs Clearance Services </h3>
-            <p>Professional handling of customs clearance and digital documentation for seamless transit.</p>
+            <h3>📜 Customs Clearance</h3>
+            <p>Professional handling of customs clearance and digital documentation for seamless transit through Somaliland.</p>
         </div>
     </div>
 </main>
 
-<section id="tracking" class="tracking-cta">
-    <div class="container">
-        <div class="tracking-main-box">
-            <h2>Track Your Shipment</h2>
-            <p>Enter your Airway Bill below for real-time updates from our manifest system.</p>
-            <form class="tracking-form" id="home-track-form">
-                <input type="text" placeholder="e.g., ASL-12345678" required>
-                <button type="submit" id="track-btn">
-                    <span class="btn-text">Track Now</span>
-                    <div class="spinner" id="spinner"></div>
-                </button>
-            </form>
-        </div>
-    </div>
-</section>
-    
-<section id="contact" class="contact-body">
+<section id="contact" style="background: var(--light-bg); padding: 80px 0;">
     <div class="container">
         <div class="contact-wrapper">
-            <div class="contact-form-container">
-                <span class="brand-red">Get a Quote</span>
-                <h2>Request a Consultation</h2>
+            <div class="contact-form-container" style="background: white; padding: 40px; border-radius: 12px; box-shadow: var(--card-shadow);">
+                <span class="brand-red" style="font-weight: bold; text-transform: uppercase; font-size: 0.8rem;">Get a Quote</span>
+                <h2 style="margin-bottom: 25px;">Request a Consultation</h2>
                 <form class="main-contact-form">
-                    <div class="form-row">
-                        <div class="form-field">
+                    <div class="form-row" style="display: flex; gap: 20px; margin-bottom: 15px;">
+                        <div class="form-field" style="flex: 1;">
                             <label>Full Name</label>
-                            <input type="text" placeholder="Enter name" required>
+                            <input type="text" placeholder="Enter name" required style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 6px;">
                         </div>
-                        <div class="form-field">
+                        <div class="form-field" style="flex: 1;">
                             <label>Email Address</label>
-                            <input type="email" placeholder="email@example.com" required>
+                            <input type="email" placeholder="email@example.com" required style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 6px;">
                         </div>
                     </div>
-                    <div class="form-field">
-                        <label>Subject</label>
-                        <input type="text" placeholder="e.g., Air Cargo Quote">
-                    </div>
-                    <div class="form-field">
+                    <div class="form-field" style="margin-bottom: 15px;">
                         <label>Message</label>
-                        <textarea placeholder="How can we help you?" rows="5"></textarea>
+                        <textarea placeholder="How can we help you?" rows="5" style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 6px;"></textarea>
                     </div>
-                    <button type="submit" class="btn-primary full-width">Send Message</button>
+                    <button type="submit" class="btn-primary" style="width: 100%; cursor: pointer;">Send Message</button>
                 </form>
             </div>
 
             <div class="contact-info-container">
-                <span class="brand-green">Our Location</span>
+                <span class="brand-green" style="font-weight: bold; text-transform: uppercase; font-size: 0.8rem;">Our Location</span>
                 <h2>Visit Our Office</h2>
                 <p>Strategically located in Hargeisa to manage your cargo through HGA and Berbera Port.</p>
                 
-                <div class="info-item">
+                <div class="info-item" style="margin-top: 25px;">
                     <strong>📍 Address</strong>
                     <p>Airsell Cargo Building, 1st Floor, Hargeisa, Somaliland</p>
                 </div>
-                <div class="info-item">
+                <div class="info-item" style="margin-top: 15px;">
                     <strong>📧 Email</strong>
-                    <p>airsellcargo@gmail.com</p>
+                    <p>info@airsellcargo.com</p>
                 </div>
-
-                <div class="map-box">
-                    <p>📍 Hargeisa Operations Center</p>
+                <div style="background: var(--primary-dark); color: white; padding: 20px; border-radius: 8px; margin-top: 30px; border-left: 5px solid var(--brand-yellow);">
+                    <p style="margin: 0; font-size: 0.9rem;"><strong>Direct Contact:</strong> +252-63-482-3310</p>
                 </div>
             </div>
         </div>
     </div>
 </section>
-    
+
 <footer>
     <div class="container footer-grid">
-        <div>
-            <h4>Airsell Cargo</h4>
-            <p>A leading non-IATA freight forwarding agent based in Hargeisa.</p>
+        <div class="footer-column">
+            <div class="logo"><span class="brand-red">Air</span><span class="brand-green">sell</span> Cargo</div>
+            <p>Your premier logistics partner in Somaliland, connecting Hargeisa to the world.</p>
         </div>
-        <div class="contact-info">
+        <div class="footer-column">
             <h4>Quick Links</h4>
-            <p><a href="services.html" style="color:white; text-decoration:none;">Our Services</a></p>
-            <p><a href="tracking.html" style="color:white; text-decoration:none;">Track Shipment</a></p>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="tracking.html">Track Shipment</a></li>
+            </ul>
         </div>
+        <div class="footer-column">
+            <h4>Contact Details</h4>
+            <p>📍 Hargeisa, Somaliland</p>
+            <p>📧 info@airsellcargo.com</p>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2026 Airsell Cargo. All rights reserved.</p>
     </div>
 </footer>
 
-<script>
-    const trackForm = document.getElementById('home-track-form');
-    const trackBtn = document.getElementById('track-btn');
-
-    trackForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-        trackBtn.parentElement.classList.add('loading');
-        
-        setTimeout(() => {
-            alert("Searching Airsell Manifest System for: " + trackForm.querySelector('input').value);
-            trackBtn.parentElement.classList.remove('loading');
-        }, 2000);
-    });
-</script>
 </body>
 </html>
