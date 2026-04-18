@@ -2,14 +2,14 @@
    1. BRAND COLOR PALETTE & GLOBAL SETTINGS
    ========================================= */
 :root {
-    --brand-red: #dc3545;
-    --brand-yellow: #ffc107;
-    --brand-green: #28a745;
-    --primary-dark: #1e293b; /* This is the Deep Navy Blue */
+    --brand-red: #dc3545;    /* Air Cargo / Urgency */
+    --brand-yellow: #ffc107; /* Navigation Highlights */
+    --brand-green: #28a745;  /* Sea Cargo / Success / Tracking */
+    --primary-dark: #1e293b; /* Deep Navy Blue for Airsell Cargo */
     --light-bg: #f8fafc;
     --text-dark: #1e293b;
     --white: #ffffff;
-    --card-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+    --card-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
 }
 
 * { box-sizing: border-box; }
@@ -30,7 +30,7 @@ body {
 }
 
 /* =========================================
-   2. HEADER & NAVIGATION (LOGO LEFT, NAV RIGHT)
+   2. HEADER & NAVIGATION
    ========================================= */
 header {
     background: var(--primary-dark);
@@ -107,27 +107,68 @@ nav ul li a.active {
 .service-card:nth-child(3) { border-top-color: var(--brand-green); }
 
 /* =========================================
-   4. FORMS & INPUTS (TRACKING & CONTACT)
+   4. TRACKING RESULTS STYLING
    ========================================= */
-input[type="text"], 
-input[type="email"], 
-textarea {
+.tracking-result-card {
+    background: white;
+    border-radius: 12px;
+    padding: 30px;
+    max-width: 600px;
+    margin: 40px auto;
+    box-shadow: var(--card-shadow);
+    border-left: 8px solid var(--brand-green);
+    text-align: left;
+}
+
+.status-timeline {
+    margin-top: 20px;
+}
+
+.status-step {
+    padding: 10px 0;
+    border-left: 2px solid #e2e8f0;
+    padding-left: 20px;
+    margin-left: 10px;
+    color: #94a3b8;
+}
+
+.status-step.completed {
+    border-left-color: var(--brand-green);
+    color: var(--text-dark);
+}
+
+/* =========================================
+   5. CONTACT & FORMS
+   ========================================= */
+.contact-wrapper {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 50px;
+    margin-top: 40px;
+}
+
+@media (max-width: 768px) {
+    .contact-wrapper { grid-template-columns: 1fr; }
+}
+
+.info-item {
+    margin-bottom: 25px;
+    padding: 20px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: var(--card-shadow);
+}
+
+input[type="text"], input[type="email"], textarea {
     width: 100%;
     padding: 14px;
     margin: 10px 0;
     border: 1px solid #ddd;
     border-radius: 8px;
     font-size: 1rem;
-    background: #fff;
 }
 
-input:focus, textarea:focus {
-    border-color: var(--brand-yellow);
-    outline: none;
-    box-shadow: 0 0 5px rgba(255, 193, 7, 0.3);
-}
-
-.btn-primary, #track-btn {
+.btn-primary {
     background: var(--brand-green);
     color: white;
     padding: 14px 28px;
@@ -136,54 +177,12 @@ input:focus, textarea:focus {
     font-weight: 700;
     cursor: pointer;
     transition: 0.3s;
-    width: auto;
 }
 
-.btn-primary:hover, #track-btn:hover {
-    background: var(--brand-red);
-}
-
-/* =========================================
-   5. CONTACT SECTION LAYOUT
-   ========================================= */
-.contact-wrapper {
-    display: grid;
-    grid-template-columns: 2fr 1fr; /* Form is wider than the address info */
-    gap: 50px;
-}
-
-@media (max-width: 768px) {
-    .contact-wrapper {
-        grid-template-columns: 1fr; /* Stacks vertically on mobile phones */
-    }
-}
-.contact-form-container, .contact-info-container {
-    flex: 1;
-    min-width: 320px;
-}
-
-.info-item {
-    margin-bottom: 25px;
-    padding: 15px;
-    background: #fff;
-    border-radius: 8px;
-}
+.btn-primary:hover { background: var(--brand-red); }
 
 /* =========================================
    6. FOOTER
-   ========================================= */
-footer {
-    background: var(--primary-dark);
-    color: white;
-    padding: 60px 0;
-    text-align: center;
-    border-top: 4px solid var(--brand-green);
-    margin-top: 80px;
-}
-
-
-/* =========================================
-   FOOTER STYLES
    ========================================= */
 footer {
     background: var(--primary-dark);
@@ -203,34 +202,12 @@ footer {
 .footer-column h4 {
     color: var(--brand-yellow);
     margin-bottom: 20px;
-    font-size: 1.2rem;
     text-transform: uppercase;
 }
 
-.footer-column p {
-    color: #cbd5e1;
-    font-size: 0.95rem;
-    line-height: 1.6;
-}
-
-.footer-column ul {
-    list-style: none;
-    padding: 0;
-}
-
-.footer-column ul li {
-    margin-bottom: 12px;
-}
-
-.footer-column ul li a {
+.footer-column a {
     color: #cbd5e1;
     text-decoration: none;
-    transition: 0.3s;
-}
-
-.footer-column ul li a:hover {
-    color: var(--brand-yellow);
-    padding-left: 5px;
 }
 
 .footer-bottom {
