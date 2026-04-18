@@ -1,53 +1,36 @@
 /* =========================================
-   1. CORE BRANDING & GLOBAL REFINEMENT
+   1. BRAND COLOR PALETTE (RED, YELLOW, GREEN)
    ========================================= */
 :root {
-    --primary-blue: #002e5d;
-    --brand-green: #28a745;
-    --brand-red: #dc3545;
+    --brand-red: #dc3545;    /* Primary Action / Air Cargo */
+    --brand-yellow: #ffc107; /* Highlights / Accents */
+    --brand-green: #28a745;  /* Success / Tracking / Sea Cargo */
+    --primary-dark: #1a1a1a; /* Professional neutral for headers */
     --light-bg: #f8fafc;
     --text-dark: #1e293b;
-    --text-muted: #64748b;
     --white: #ffffff;
-    --card-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
-    --border-color: #e2e8f0;
+    --card-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
 }
 
-* {
-    box-sizing: border-box; /* Crucial: Prevents fields from breaking layout */
-}
+* { box-sizing: border-box; }
 
 body {
-    font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
+    font-family: 'Segoe UI', system-ui, sans-serif;
     margin: 0;
     background-color: var(--light-bg);
     color: var(--text-dark);
-    line-height: 1.6;
-    -webkit-font-smoothing: antialiased;
-}
-
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 24px;
 }
 
 /* =========================================
-   2. HEADER & STICKY NAVIGATION
+   2. HEADER & NAVIGATION
    ========================================= */
 header {
-    background: var(--primary-blue);
+    background: var(--primary-dark);
     padding: 1.2rem 0;
     position: sticky;
     top: 0;
     z-index: 1000;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-}
-
-.header-flex {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    border-bottom: 4px solid var(--brand-yellow); /* Yellow brand accent */
 }
 
 .logo {
@@ -55,171 +38,104 @@ header {
     font-weight: 800;
     color: white;
     text-decoration: none;
-    letter-spacing: -0.5px;
 }
+
+/* Using your Red and Green in the Logo */
+.brand-red { color: var(--brand-red); }
+.brand-green { color: var(--brand-green); }
 
 nav ul {
     list-style: none;
     display: flex;
     gap: 32px;
-    margin: 0;
-    padding: 0;
 }
 
 nav ul li a {
-    color: rgba(255, 255, 255, 0.9);
+    color: white;
     text-decoration: none;
     font-weight: 600;
-    font-size: 0.95rem;
-    transition: all 0.2s ease;
+    transition: 0.3s;
 }
 
 nav ul li a:hover, 
 nav ul li a.active {
-    color: var(--brand-green);
+    color: var(--brand-yellow); /* Yellow highlight on hover */
 }
 
 /* =========================================
-   3. HERO SECTIONS (Shared)
+   3. HERO & BUTTONS
    ========================================= */
-.tracking-hero, .contact-hero, .services-hero {
-    background: var(--primary-blue);
-    padding: 80px 0 120px 0;
+.services-hero, .tracking-hero {
+    background: var(--primary-dark);
+    padding: 80px 0 120px;
     color: white;
     text-align: center;
 }
 
-/* =========================================
-   4. SERVICES GRID (Refined Card Design)
-   ========================================= */
-.services-section { padding: 80px 0; text-align: center; }
-
-.services-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 32px;
-    margin-top: 40px;
+.btn-primary {
+    background: var(--brand-red); /* Red for primary buttons */
+    color: white;
+    padding: 16px 32px;
+    border-radius: 8px;
+    border: none;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.3s;
 }
 
+.btn-primary:hover {
+    background: var(--brand-green); /* Switches to Green on hover */
+}
+
+/* =========================================
+   4. SERVICE CARDS (Using Red/Yellow/Green)
+   ========================================= */
 .service-card {
     background: var(--white);
-    padding: 48px 32px;
+    padding: 40px;
     border-radius: 16px;
     box-shadow: var(--card-shadow);
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    border: 1px solid rgba(0,0,0,0.02);
-}
-
-.service-card:hover { transform: translateY(-8px); box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1); }
-
-/* Accent borders for Service Cards */
-.service-card:nth-child(1) { border-bottom: 5px solid var(--brand-green); }
-.service-card:nth-child(2) { border-bottom: 5px solid var(--brand-green); }
-.service-card:nth-child(3) { border-bottom: 5px solid var(--brand-red); }
-
-.service-card h3 { color: var(--primary-blue); margin-bottom: 15px; font-size: 1.5rem; }
-.service-card p { color: var(--text-muted); font-size: 1rem; }
-
-/* =========================================
-   5. CONTACT & TRACKING WRAPPERS
-   ========================================= */
-.contact-wrapper, .tracking-main-box {
-    background: var(--white);
-    padding: 50px;
-    border-radius: 24px;
-    box-shadow: var(--card-shadow);
-    margin-top: -60px; /* Overlap Effect */
-    position: relative;
-    z-index: 10;
-}
-
-.contact-wrapper {
-    display: grid;
-    grid-template-columns: 1.6fr 1fr;
-    gap: 48px;
-}
-
-/* Form Layout Refinement */
-.form-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
-}
-
-.form-field { margin-bottom: 24px; text-align: left; }
-
-.form-field label {
-    display: block;
-    font-weight: 600;
-    margin-bottom: 8px;
-    font-size: 0.85rem;
-    text-transform: uppercase;
-    color: var(--text-muted);
-}
-
-input, select, textarea {
-    width: 100%;
-    padding: 14px 18px;
-    border: 1px solid var(--border-color);
-    border-radius: 10px;
-    background: #fcfdfe;
-    font-size: 1rem;
-    transition: 0.2s ease;
-}
-
-input:focus, select:focus, textarea:focus {
-    outline: none;
-    border-color: var(--brand-green);
-    box-shadow: 0 0 0 4px rgba(40, 167, 69, 0.1);
-}
-
-.btn-primary.full-width {
-    width: 100%;
-    background: var(--primary-blue);
-    color: white;
-    padding: 18px;
-    border-radius: 10px;
-    font-weight: 700;
-    text-transform: uppercase;
-    border: none;
-    cursor: pointer;
-    transition: background 0.3s ease;
-}
-
-.btn-primary.full-width:hover { background: var(--brand-green); }
-
-/* =========================================
-   6. CONTACT INFO BLOCK
-   ========================================= */
-.contact-info-container {
-    background: var(--light-bg);
-    padding: 30px;
-    border-radius: 16px;
-    text-align: left;
-}
-
-.info-item { margin-bottom: 25px; }
-.info-item strong { display: block; color: var(--primary-blue); font-size: 0.9rem; }
-
-/* =========================================
-   7. FOOTER
-   ========================================= */
-footer {
-    background: #0f172a;
-    color: white;
-    padding: 60px 0;
     text-align: center;
-    margin-top: 80px;
+    border-top: 6px solid transparent;
+}
+
+/* Applying colors to specific cards */
+.service-card:nth-child(1) { border-top-color: var(--brand-red); }
+.service-card:nth-child(2) { border-top-color: var(--brand-yellow); }
+.service-card:nth-child(3) { border-top-color: var(--brand-green); }
+
+/* =========================================
+   5. TRACKING BOX
+   ========================================= */
+.tracking-main-box {
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    margin-top: -60px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+
+.tracking-form button {
+    background: var(--brand-green); /* Green for "Go" / Track */
+    color: white;
+    border: none;
+    padding: 18px 30px;
+    font-weight: bold;
+    cursor: pointer;
 }
 
 /* =========================================
-   8. MOBILE RESPONSIVENESS
+   6. CONTACT FORM REFINEMENT
    ========================================= */
-@media (max-width: 900px) {
-    .header-flex { flex-direction: column; gap: 15px; }
-    .contact-wrapper { grid-template-columns: 1fr; padding: 30px 20px; }
-    .form-row { grid-template-columns: 1fr; }
-    .tracking-form { flex-direction: column; }
-    .tracking-form input { border-radius: 10px; margin-bottom: 10px; }
-    .tracking-form button { border-radius: 10px; width: 100%; }
+input:focus, textarea:focus {
+    outline: none;
+    border: 2px solid var(--brand-yellow); /* Yellow glow on click */
+}
+
+footer {
+    background: var(--primary-dark);
+    color: white;
+    padding: 40px 0;
+    text-align: center;
+    border-top: 4px solid var(--brand-green);
 }
