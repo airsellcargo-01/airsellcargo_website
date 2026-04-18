@@ -1,54 +1,80 @@
-<div id="tracking-result" class="tracking-result-box">
-    <div class="result-header">
-        <div>
-            <span class="label">Shipment Number</span>
-            <h3 id="shipment-id">ASL-8829104</h3>
-        </div>
-        <div class="status-badge delivered">Delivered</div>
-    </div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Track Shipment | Airsell Cargo</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
-    <div class="tracking-timeline">
-        <div class="step completed">
-            <div class="dot"></div>
-            <span>Booked</span>
-        </div>
-        <div class="step active">
-            <div class="dot"></div>
-            <span>In Transit</span>
-        </div>
-        <div class="step">
-            <div class="dot"></div>
-            <span>Arrival (HGA)</span>
-        </div>
+<header>
+    <div class="container header-flex">
+        <div class="logo"><span class="brand-red">Air</span><span class="brand-green">sell</span> Cargo</div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li> 
+                <li><a href="services.html">Services</a></li> 
+                <li><a href="tracking.html" class="active">Tracking</a></li> 
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+        </nav>
     </div>
+</header>
 
-    <div class="shipment-details">
-        <p><strong>Current Location:</strong> Dubai Hub (DXB)</p>
-        <p><strong>Estimated Arrival:</strong> 22nd April 2026</p>
+<main class="container">
+    <section class="tracking-hero">
+        <h1>Global Shipment Tracking</h1>
+        <p>Monitor your cargo from Hargeisa to the world.</p>
+    </section>
+
+    <div class="tracking-main-box">
+        <h3>Enter Tracking Number</h3>
+        <form class="tracking-form" id="main-track-form">
+            <input type="text" id="awb-input" placeholder="e.g., ASL-8829104" required>
+            <button type="submit" id="track-btn">Track Now</button>
+        </form>
+
+        <div id="tracking-result" style="display: none; margin-top: 30px;">
+            <div class="tracking-result-card">
+                <div class="tracking-header">
+                    <small>Shipment ID:</small>
+                    <h2 id="display-awb"></h2>
+                </div>
+                
+                <div class="status-timeline">
+                    <div class="status-step completed">✅ Booked</div>
+                    <div class="status-step completed">✅ In Transit</div>
+                    <div class="status-step active">✈️ Arrived at Hub (Dubai)</div>
+                    <div class="status-step">🏁 Final Delivery</div>
+                </div>
+
+                <div class="tracking-details">
+                    <p><strong>Current Location:</strong> Dubai Hub (DXB)</p>
+                    <p><strong>Estimated Arrival:</strong> <span class="brand-red">22nd April 2026</span></p>
+                </div>
+            </div>
+        </div>
     </div>
-</div>
+</main>
+
 <script>
-    const form = document.getElementById('tracking-page-form');
-    const output = document.getElementById('tracking-output');
-    const btn = document.getElementById('track-btn');
+    const trackForm = document.getElementById('main-track-form');
+    const resultArea = document.getElementById('tracking-result');
+    const displayAwb = document.getElementById('display-awb');
 
-    form.addEventListener('submit', function(e) {
+    trackForm.addEventListener('submit', function(e) {
         e.preventDefault();
+        const inputValue = document.getElementById('awb-input').value;
         
-        // Add loading state
-        btn.parentElement.classList.add('loading');
-        btn.disabled = true;
-
-        // Simulate a 1.5s delay to "find" the shipment
-        setTimeout(() => {
-            btn.parentElement.classList.remove('loading');
-            btn.disabled = false;
-            
-            // Show the result
-            output.style.display = 'block';
-            
-            // Smooth scroll to the result
-            output.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        }, 1500);
+        // Show the results
+        displayAwb.innerText = inputValue;
+        resultArea.style.display = 'block';
+        
+        // Scroll to result smoothly
+        resultArea.scrollIntoView({ behavior: 'smooth' });
     });
 </script>
+
+</body>
+</html>
