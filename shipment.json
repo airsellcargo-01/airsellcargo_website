@@ -1,0 +1,35 @@
+[
+  {
+    "ShipmentID": "SHP-001",
+    "CustomerName": "Ali Ahmed",
+    "Origin": "Hargeisa",
+    "Destination": "Dubai",
+    "CargoType": "General Cargo",
+    "WeightKg": 1200,
+    "Status": "In Transit",
+    "AssignedAgent": "Mohamed Yusuf",
+    "BookingDate": "2026-04-15",
+    "ExpectedArrival": "2026-04-22",
+    "Documents": [
+      "bill_of_lading.pdf",
+      "invoice.pdf"
+    ],
+    "Notes": "Handle with care"
+  },
+  {
+    "ShipmentID": "SHP-002",
+    "CustomerName": "Hodan Ismail",
+    "Origin": "Berbera",
+    "Destination": "Jeddah",
+    "CargoType": "Livestock",
+    "WeightKg": 5000,
+    "Status": "Pending",
+    "AssignedAgent": "Abdi Warsame",
+    "BookingDate": "2026-04-18",
+    "ExpectedArrival": "2026-04-25",
+    "Documents": [
+      "export_permit.pdf"
+    ],
+    "Notes": "Requires veterinary clearance"
+  }
+]
