@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Book Shipment | Airsell Cargo</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <div class="container header-flex">
+    <div class="logo"><span class="brand-red">Air</span><span class="brand-green">sell</span> Cargo</div>
+    <nav>
+      <ul>
+        <li><a href="home.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="tracking.html">Tracking</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="booking.html" class="active">Booking</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main class="container" style="padding:40px;">
+  <h1>Book a Shipment</h1>
+  <form id="booking-form" class="booking-form" style="max-width:600px;">
+    <label>Customer Name</label>
+    <input type="text" id="customerName" required>
+
+    <label>Origin</label>
+    <input type="text" id="origin" required>
+
+    <label>Destination</label>
+    <input type="text" id="destination" required>
+
+    <label>Cargo Type</label>
+    <input type="text" id="cargoType" required>
+
+    <label>Weight (Kg)</label>
+    <input type="number" id="weight" required>
+
+    <label>Assigned Agent</label>
+    <input type="text" id="agent" required>
+
+    <button type="submit" class="btn-primary" style="margin-top:20px;">Submit Booking</button>
+  </form>
+
+  <div id="confirmation" style="margin-top:30px; display:none;">
+    <h3>Booking Confirmed</h3>
+    <p>Your HAWB Number: <strong id="hawb-number"></strong></p>
+  </div>
+</main>
+
+<script>
+function generateHAWB(lastHAWB) {
+  const year = new Date().getFullYear();
+  let seq = 1;
+  if (lastHAWB) {
+    const parts = lastHAWB.split("-");
+    seq = parseInt(parts[2]) + 1;
+  }
+  return `ASL-${year}-${String(seq).padStart(3, '0')}`;
+}
+
+document.getElementById('booking-form').addEventListener('submit', function(e) {
+  e.preventDefault();
+
+  // Example: fetch existing shipments to get last HAWB
+  fetch('shipment.json')
+    .then(response => response.json())
+    .then(shipments => {
+      const lastHAWB = shipments.length ? shipments[shipments.length-1].ShipmentID : null;
+      const newHAWB = generateHAWB(lastHAWB);
+
+      const newShipment = {
+        ShipmentID: newHAWB,
+        CustomerName: document.getElementById('customerName').value,
+        Origin: document.getElementById('origin').value,
+        Destination: document.getElementById('destination').value,
+        CargoType: document.getElementById('cargoType').value,
+        WeightKg: parseInt(document.getElementById('weight').value),
+        Status: "Booked",
+        AssignedAgent: document.getElementById('agent').value,
+        BookingDate: new Date().toISOString().split('T')[0],
+        ExpectedArrival: "",
+        Timeline: [
+          { step: "Booked", status: "active" },
+          { step: "In Transit", status: "pending" },
+          { step: "Arrived at Hub", status: "pending" },
+          { step: "Final Delivery", status: "pending" }
+        ]
+      };
+
+      // Show confirmation
+      document.getElementById('hawb-number').innerText = newHAWB;
+      document.getElementById('confirmation').style.display = 'block';
+
+      // ⚠️ Note: On GitHub Pages you cannot directly write to shipment.json.
+      // In production, you’d POST this to a backend API or use Power Automate
+      // to append the record to your shipment database.
+      console.log("New Shipment:", newShipment);
+    });
+});
+</script>
+</body>
+</html>
