@@ -32,4 +32,39 @@
     ],
     "Notes": "Requires veterinary clearance"
   }
+  "Timeline": [
+  { "step": "Booked - Hargeisa (HGA)", "status": "completed" },
+  { "step": "In Transit - Ethiopian Cargo", "status": "completed" },
+  { "step": "Arrived at Hub (Dubai DXB)", "status": "active" },
+  { "step": "Final Delivery", "status": "pending" }
 ]
+"CurrentLocation": "Dubai Hub (DXB)"
+]
+"LastUpdated": "2026-04-19T18:30:00"
+]
+{
+  "ShipmentID": "SHP-001",
+  "CustomerID": "CUST-001",
+  "CustomerName": "Ali Ahmed",
+  "Origin": "Hargeisa",
+  "Destination": "Dubai",
+  "CargoType": "General Cargo",
+  "WeightKg": 1200,
+  "Status": "In Transit",
+  "AssignedAgent": "Mohamed Yusuf",
+  "BookingDate": "2026-04-15",
+  "ExpectedArrival": "2026-04-22",
+  "CurrentLocation": "Dubai Hub (DXB)",
+  "LastUpdated": "2026-04-19T18:30:00",
+  "Documents": [
+    "bill_of_lading.pdf",
+    "invoice.pdf"
+  ],
+  "Notes": "Handle with care",
+  "Timeline": [
+    { "step": "Booked - Hargeisa (HGA)", "status": "completed" },
+    { "step": "In Transit - Ethiopian Cargo", "status": "completed" },
+    { "step": "Arrived at Hub (Dubai DXB)", "status": "active" },
+    { "step": "Final Delivery", "status": "pending" }
+  ]
+}
