@@ -92,29 +92,46 @@
 </footer>
 
 <script>
-    const trackForm = document.getElementById('main-track-form');
-    const resultArea = document.getElementById('tracking-result');
-    const displayAwb = document.getElementById('display-awb');
-    const trackBtn = document.getElementById('track-btn');
+const trackForm = document.getElementById('main-track-form');
+const resultArea = document.getElementById('tracking-result');
+const displayAwb = document.getElementById('display-awb');
+const trackBtn = document.getElementById('track-btn');
 
-    trackForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-        const inputValue = document.getElementById('awb-input').value;
-        
-        // Add a small loading effect
-        trackBtn.innerText = "Searching...";
-        trackBtn.style.opacity = "0.7";
-        
-        setTimeout(() => {
-            displayAwb.innerText = inputValue;
-            resultArea.style.display = 'block';
-            trackBtn.innerText = "Track Now";
-            trackBtn.style.opacity = "1";
-            
-            // Scroll to result smoothly
-            resultArea.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        }, 800);
+trackForm.addEventListener('submit', function(e) {
+  e.preventDefault();
+  const inputValue = document.getElementById('awb-input').value.trim();
+
+  trackBtn.innerText = "Searching...";
+  trackBtn.style.opacity = "0.7";
+
+  fetch('shipment.json')
+    .then(response => response.json())
+    .then(shipments => {
+      const shipment = shipments.find(s => s.ShipmentID === inputValue);
+      if (shipment) {
+        displayAwb.innerText = shipment.ShipmentID;
+        resultArea.style.display = 'block';
+        document.querySelector('.tracking-details').innerHTML = `
+          <p><strong>Customer:</strong> ${shipment.CustomerName}</p>
+          <p><strong>Origin:</strong> ${shipment.Origin}</p>
+          <p><strong>Destination:</strong> ${shipment.Destination}</p>
+          <p><strong>Status:</strong> ${shipment.Status}</p>
+          <p><strong>Estimated Arrival:</strong> ${shipment.ExpectedArrival}</p>
+        `;
+      } else {
+        resultArea.style.display = 'block';
+        document.querySelector('.tracking-details').innerHTML =
+          "<p style='color:red;'>No shipment found for this AWB.</p>";
+      }
+      trackBtn.innerText = "Track Now";
+      trackBtn.style.opacity = "1";
+      resultArea.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    })
+    .catch(error => {
+      console.error('Error loading shipment data:', error);
     });
+});
 </script>
+
 </body>
 </html>
