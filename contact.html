@@ -2,13 +2,31 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    
     <title>Contact Us | Airsell Cargo</title>
+    
     <link rel="stylesheet" href="style.css">
+
     <style>
-        /* Small internal style to ensure the form rows wrap on mobile */
+        /* Cross-browser form responsiveness */
         @media (max-width: 600px) {
-            .form-row { flex-direction: column; gap: 0 !important; }
+            .form-row { 
+                flex-direction: column !important; 
+                display: flex;
+                gap: 0 !important; 
+            }
+            .form-field {
+                width: 100% !important;
+                margin-bottom: 15px;
+            }
+        }
+        
+        /* Ensures the Navy Hero looks consistent in Safari */
+        .services-hero {
+            -webkit-font-smoothing: antialiased;
         }
     </style>
 </head>
