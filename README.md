@@ -7,7 +7,7 @@ The site is deployed via **GitHub Pages** and serves as the client-facing portal
 Visit: [https://airsellcargo.com](https://airsellcargo.com)
 
 ## 📂 Project Structure
-- `home.html` → Main landing page (currently set to Contact page)
+- `index.html` → Main landing page (currently set to Contact page)
 - `about.html` → Company background
 - `services.html` → Cargo and logistics services
 - `tracking.html` → Shipment tracking portal
