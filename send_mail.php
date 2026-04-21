@@ -7,8 +7,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $name = strip_tags(trim($_SERVER["name"]));
     $email = filter_var(trim($_POST["email"]), FILTER_SANITIZE_EMAIL);
     $subject = strip_tags(trim($_POST["subject"]));
-    $message = htmlspecialchars($_POST["message"]);
-
+    $message = htmlspecialchars($_POST["feedback"]);
+     $service = htmlspecialchars($_POST["service-type"]);
     // 3. Prepare Email Headers
     $email_subject = "New Contact from Airsell Portal: $subject";
     $headers = "From: $name <$email>\r\n";
@@ -19,8 +19,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $body = "You have received a new message from your website contact form.\n\n".
             "Name: $name\n".
             "Email: $email\n".
-            "Subject: $subject\n\n".
-            "Message:\n$message";
+            "service-type: $service\n\n".
+            "feedback:\n$message";
 
     // 5. Send the Email
     if (mail($to, $email_subject, $body, $headers)) {
