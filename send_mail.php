@@ -19,7 +19,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $body = "You have received a new message from your website contact form.\n\n".
             "Name: $name\n".
             "Email: $email\n".
-            "service-type: $service\n\n".
+            "subject: $subject\n\n".
             "feedback:\n$message";
 
     // 5. Send the Email
