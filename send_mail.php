@@ -1,5 +1,5 @@
 <?php
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+if ( asset($_post["sumit"] == "POST") ){
     // 1. Configuration - Change this to your email
     $to = "airsellcargo@gmail.com"; 
     
