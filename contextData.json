@@ -1,0 +1,46 @@
+{
+  "chatSessionId": "e019237a-f1e7-4d9c-a84e-64bcd2d5d6bd",
+  "chatEntries": [
+    {
+      "author": "user",
+      "message": "advice how to connect : <?php\nif ($_SERVER[\"REQUEST_METHOD\"] == \"POST\") {\n    // 1. Configuration\n    $to = \"sales@airsellcargo.com\"; \n    \n    // 2. Collect and sanitize input\n    // FIXED: Changed $_SERVER to $_POST\n    $name = strip_tags(trim($_POST[\"name\"])); \n    $email = filter_var(trim($_POST[\"email\"]), FILTER_SANITIZE_EMAIL);\n    $subject = strip_tags(trim($_POST[\"subject\"]));\n    \n    // Ensure these match your HTML 'name' attributes\n    $message = htmlspecialchars($_POST[\"feedback\"]);\n    $service = htmlspecialchars($_POST[\"service-type\"]);\n\n    // 3. Prepare Email Headers\n    $email_subject = \"Airsell Portal Inquiry: $subject\";\n    \n    // PRO TIP: Some hosts (GoDaddy) require 'From' to be an email on your domain\n    // Example: $headers = \"From: portal@airsellcargo.com\\r\\n\";\n    $headers = \"From: $name <$email>\\r\\n\";\n    $headers .= \"Reply-To: $email\\r\\n\";\n    $headers .= \"Content-Type: text/plain; charset=UTF-8\\r\\n\";\n\n    // 4. Build the Email Body (IMPROVED)\n    $body = \"New message from Airsell Cargo Website Form:\\n\\n\";\n    $body .= \"Customer Name: $name\\n\";\n    $body .= \"Customer Email: $email\\n\";\n    $body .= \"Service Required: $service\\n\"; // Added this field\n    $body .= \"Subject: $subject\\n\\n\";\n    $body .= \"Message Details:\\n$message\\n\\n\";\n    $body .= \"--- End of Message ---\";\n\n    // 5. Send the Email\n    if (mail($to, $email_subject, $body, $headers)) {\n        echo \"Thank you! Your inquiry has been sent to the Airsell Cargo team.\";\n    } else {\n        echo \"Error: We could not send your message. Please email us directly at airsellcargo@gmail.com\";\n    }\n} else {\n    echo \"Access Denied.\";\n    if (mail($to, $email_subject, $body, $headers)) {\n    echo \"Message sent successfully.\";\n} else {\n    error_log(\"Mail failed: \" . print_r(error_get_last(), true));\n    echo \"Error sending message.\";\n}\n\n}\n?>",
+      "format": "raw"
+    }
+  ],
+  "checkHallucinatedActions": true,
+  "isDesignerCopilotMultiturnEnabled": false,
+  "flowId": "7847d961-b7ed-f011-8406-000d3abe489e",
+  "connectionReference": {},
+  "resolvedConnectionReferences": {},
+  "chatHistory": [],
+  "isQAndAOnly": false,
+  "featureSource": "chat",
+  "clientSource": "PowerAutomate",
+  "supportCheckerOverrides": [
+    "ContainsAIBOperation",
+    "ContainsChildFlowOperations",
+    "ContainsResponseOperations",
+    "ContainsUIFlowOperation",
+    "ContainsSAPOperation",
+    "ContainsSharedConnectionInFlow"
+  ],
+  "supportedHybridTriggers": [
+    "FORASELECTEDFILE",
+    "FORASELECTEDFILEHYBRIDTRIGGER",
+    "GETITEMHYBRIDTRIGGERSCHEMA",
+    "GETONNEWITEMS_V2",
+    "ONHUBSITEJOINAPPROVAL",
+    "POWERBIBUTTONCLICKED",
+    "GETRAWANDFORMATTEDTABLESCHEMA",
+    "FORASELECTEDRECORDV3",
+    "FORASELECTEDMESSAGEV2",
+    "COMPOSEAMESSAGEV2",
+    "RECORDSELECTED"
+  ],
+  "crossGeoCallEnabled": true,
+  "response": {
+    "author": "assistant",
+    "message": "To connect a web form (like your PHP example) to Power Automate, you can use a **Power Automate HTTP trigger**. Here’s a simple approach:\n\n1. **Create a Flow** in Power Automate with the trigger **\"When an HTTP request is received\"**.\n2. **Copy the generated HTTP POST URL** from the trigger.\n3. **Update your PHP code** to send a POST request to this URL instead of sending an email directly. Use `curl` in PHP to do this.\n\n**Example PHP snippet:**\n```php\n$url = \"https://prod-xx.westus.logic.azure.com:...\"; // Your Flow's HTTP POST URL\n$data = [\n    \"name\" => $name,\n    \"email\" => $email,\n    \"subject\" => $subject,\n    \"feedback\" => $message,\n    \"service-type\" => $service\n];\n$options = [\n    \"http\" => [\n        \"header\"  => \"Content-type: application/json\\r\\n\",\n        \"method\"  => \"POST\",\n        \"content\" => json_encode($data),\n    ],\n];\n$context  = stream_context_create($options);\n$result = file_get_contents($url, false, $context);\n```\n\n**Tip:** In your Flow, you can then use the received data to send an email, store in SharePoint, etc.\n\nLet me know if you want step-by-step details for any part!",
+    "format": "markdown"
+  }
+}
