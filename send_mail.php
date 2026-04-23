@@ -35,7 +35,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (mail($to, $email_subject, $body, $headers)) {
         echo "Thank you! Your inquiry has been sent to the Airsell Cargo team.";
     } else {
-        echo "Error: We could not send your message. Please email us directly at airsellcargo@gmail.com";
+        echo "Error: We could not send your message. Please email us directly at sales@airsellcargo.com";
     }
 } else {
     echo "Access Denied.";
