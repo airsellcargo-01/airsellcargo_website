@@ -1,7 +1,7 @@
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // 1. Configuration
-    $to = "airsellcargo@gmail.com"; 
+    $to = "sales@airsellcargo.com"; 
     
     // 2. Collect and sanitize input
     // FIXED: Changed $_SERVER to $_POST
@@ -39,5 +39,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 } else {
     echo "Access Denied.";
+    if (mail($to, $email_subject, $body, $headers)) {
+    echo "Message sent successfully.";
+} else {
+    error_log("Mail failed: " . print_r(error_get_last(), true));
+    echo "Error sending message.";
+}
+
 }
 ?>
