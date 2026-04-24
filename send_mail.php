@@ -1,6 +1,11 @@
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+<<<<<<< Updated upstream
     $to = "sales@airsellcargo.com"; 
+=======
+    // 1. Configuration
+    $to = "airsellcargo@gmail.com"; 
+>>>>>>> Stashed changes
     
     // Collect and sanitize input
     $name    = strip_tags(trim($_POST["name"])); 
