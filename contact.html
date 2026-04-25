@@ -63,26 +63,25 @@
                         <h2 style="color: var(--primary-dark); margin-top: 0;">Get a Quote</h2>
                         <p style="margin-bottom: 25px; color: #64748b;">Send us your shipment details and our team will get back to you within 24 hours.</p>
                         
-                        <form class="main-contact-form" action="send_mail.php" method="post" autocomplete="on">
+                       <form class="main-contact-form" action="https://formsubmit.co/contact@airsellcargo.com" method="POST">
   <div class="form-row" style="display: flex; gap: 20px;">
     <div class="form-field" style="flex: 1;">
-      <label for="name" style="font-weight: 600; display: block; margin-bottom: 5px;">Full Name</label>
+      <label for="name">Full Name</label>
       <input type="text" id="name" name="name" placeholder="Your Name" required>
     </div>
     <div class="form-field" style="flex: 1;">
-      <label for="email" style="font-weight: 600; display: block; margin-bottom: 5px;">Email Address</label>
+      <label for="email">Email Address</label>
       <input type="email" id="email" name="email" placeholder="Email" required>
     </div>
   </div>
-
   <div class="form-row" style="display: flex; gap: 20px; margin-top: 15px;">
     <div class="form-field" style="flex: 1;">
-      <label for="phone" style="font-weight: 600; display: block; margin-bottom: 5px;">Phone Number</label>
-      <input type="text" id="phone" name="phone" placeholder="+252..." required pattern="^\+?\d+.*">
+      <label for="phone">Phone Number</label>
+      <input type="text" id="phone" name="phone" placeholder="+252..." required>
     </div>
     <div class="form-field" style="flex: 1;">
-      <label for="service-type" style="font-weight: 600; display: block; margin-bottom: 5px;">Service Type</label>
-      <select id="service-type" name="service_type" style="width: 100%; padding: 14px; border-radius: 8px; border: 1px solid #ddd; background: white;" required>
+      <label for="service-type">Service Type</label>
+      <select id="service-type" name="service_type" required>
         <option value="">Select Service</option>
         <option value="air">Air Cargo (HGA)</option>
         <option value="sea">Sea Cargo (Berbera)</option>
@@ -90,20 +89,20 @@
       </select>
     </div>
   </div>
-
   <div class="form-field" style="margin-top: 15px;">
-    <label for="subject" style="font-weight: 600; display: block; margin-bottom: 5px;">Subject</label>
+    <label for="subject">Subject</label>
     <input type="text" id="subject" name="subject" placeholder="Inquiry Subject" required>
   </div>
-
   <div class="form-field" style="margin-top: 15px;">
-    <label for="details" style="font-weight: 600; display: block; margin-bottom: 5px;">Cargo Details</label>
-    <textarea id="details" name="details" placeholder="Weight, Dimensions, Destination..." rows="5" style="width: 100%; padding: 14px; border-radius: 8px; border: 1px solid #ddd;" required></textarea>
+    <label for="details">Cargo Details</label>
+    <textarea id="details" name="details" placeholder="Weight, Dimensions, Destination..." rows="5" required></textarea>
   </div>
-
-  <button type="submit" class="btn-primary" style="width: 100%; margin-top: 20px; cursor: pointer; border: none; font-size: 1.1rem;">Send Inquiry</button>
+  <!-- Optional: Prevents spam via a hidden field -->
+  <input type="hidden" name="_captcha" value="false">
+  <!-- Optional: Redirect to thank-you page after submit -->
+  <!-- <input type="hidden" name="_next" value="https://yourwebsite.com/thank-you.html"> -->
+  <button type="submit" class="btn-primary" style="width: 100%; margin-top: 20px;">Send Inquiry</button>
 </form>
-
 =======
                             <div class="form-field" style="margin-top: 15px;">
                                 <label style="font-weight: 600; display: block; margin-bottom: 5px;">Cargo Details</label>
