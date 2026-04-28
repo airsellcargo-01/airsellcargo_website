@@ -47,21 +47,22 @@ body {
 }
 
 /* =========================================
-   2. HEADER & NAVIGATION
+   2. HEADER & NAVIGATION (Standardized)
    ========================================= */
 header {
     background: linear-gradient(90deg, #004e92, #000428);
-    padding: 1rem 0;
     position: sticky;
     top: 0;
     z-index: 1000;
     border-bottom: 4px solid var(--brand-yellow);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
 .header-flex {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 15px 0; /* Professional breathing room */
 }
 
 .nav-links {
@@ -69,7 +70,7 @@ header {
     list-style: none;
     margin: 0;
     padding: 0;
-    gap: 25px;
+    gap: 35px; /* Standard professional gap */
 }
 
 .nav-links a {
@@ -77,11 +78,13 @@ header {
     text-decoration: none;
     font-weight: 500;
     font-size: 1rem;
-    transition: color 0.3s ease;
+    padding: 8px 12px; /* Increased clickable area */
+    transition: color var(--transition);
 }
 
 .nav-links a.active {
     color: var(--brand-yellow);
+    border-bottom: 2px solid var(--brand-yellow);
 }
 
 .nav-links a:hover {
@@ -89,13 +92,33 @@ header {
 }
 
 /* =========================================
-   3. COMPONENTS (Hero & Cards)
+   3. COMPONENTS (Hero, Welcome & Cards)
    ========================================= */
 .services-hero {
     background: var(--primary-dark);
     padding-block: 5rem;
     color: var(--white);
     text-align: center;
+}
+
+/* Centralized Welcome Style */
+.welcome-section {
+    padding: 80px 0;
+    background: var(--white);
+    text-align: center;
+}
+
+.welcome-section h2 {
+    color: var(--brand-green);
+    margin-bottom: 20px;
+    font-size: 2.25rem;
+}
+
+.welcome-section p {
+    font-size: 1.2rem;
+    max-width: 850px;
+    margin: 0 auto; /* Horizontal Center */
+    line-height: 1.8;
 }
 
 .services-grid {
@@ -183,7 +206,7 @@ input, textarea {
 }
 
 /* =========================================
-   5. FOOTER (Horizontal Fix)
+   5. FOOTER (Global Standard)
    ========================================= */
 footer {
     background: var(--primary-dark);
@@ -254,12 +277,15 @@ footer {
 @media (max-width: 768px) {
     .header-flex {
         flex-direction: column;
-        gap: 1rem;
+        gap: 1.5rem;
+        text-align: center;
     }
     
     .nav-links {
-        gap: 1rem;
+        gap: 15px;
         font-size: 0.9rem;
+        flex-wrap: wrap;
+        justify-content: center;
     }
 
     .footer-row {
