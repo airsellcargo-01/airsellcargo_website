@@ -293,3 +293,44 @@ footer {
         text-align: center;
     }
 }
+/* =========================================
+   7. CALL TO ACTION (CTA) SECTION
+   ========================================= */
+.cta {
+    background: linear-gradient(135deg, #004e92, #000428); /* Matches your header theme */
+    color: var(--white);
+    padding: 80px 0;
+    text-align: center;
+}
+
+.cta h2 {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+}
+
+.cta p {
+    font-size: 1.2rem;
+    margin-bottom: 35px;
+    opacity: 0.9;
+}
+
+/* Specific button styling for the CTA to make it "Pop" */
+.cta .btn-primary {
+    display: inline-block;
+    width: auto; /* Overrides the 100% width from your standard buttons */
+    padding: 1rem 3rem;
+    background: var(--brand-yellow);
+    color: var(--primary-dark);
+    text-decoration: none;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-radius: 50px; /* Rounded pill shape for a modern look */
+    transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.cta .btn-primary:hover {
+    background: #e5af06;
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
