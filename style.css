@@ -43,7 +43,7 @@ html, body {
    2. HEADER & NAVIGATION
    ========================================= */
 header {
-    background: var(--primary-gray);
+   background: linear-gradient(90deg, #004e92, #000428)
     padding: 1rem 0;
     position: -webkit-sticky; /* Safari Support */
     position: sticky;
