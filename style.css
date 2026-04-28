@@ -88,30 +88,30 @@ nav ul li a.active {
 .logo {
   display: flex;
   align-items: center;
-  padding: 12px 0;
+  padding: 10px 0;
 }
 
 /* Logo image */
 .logo img {
-  height: 80px;              /* Professional standard size */
-  max-width: 260px;          /* Prevents distortion */
+  height: 72px;              /* Standard professional size */
+  max-width: 240px;          /* Prevents distortion */
   object-fit: contain;       /* Keeps proportions */
 }
 
-/* Retina support: swap to high-res file */
+/* Retina support: serve larger file but scale down */
 @media only screen and (-webkit-min-device-pixel-ratio: 2),
        only screen and (min-resolution: 192dpi) {
   .logo img {
-    content: url("logo@2x.png");
-    height: 80px;
+    content: url("logo@2x.png"); /* High-res version */
+    height: 72px;
   }
 }
 
 /* Responsive scaling for mobile */
 @media (max-width: 768px) {
   .logo img {
-    height: 60px;
-    max-width: 200px;
+    height: 56px;
+    max-width: 180px;
   }
 }
 
