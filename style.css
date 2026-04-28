@@ -88,32 +88,23 @@ nav ul li a.active {
 .logo {
   display: flex;
   align-items: center;
-  padding: 8px 0;
+  padding: 10px 0;
 }
 
 /* Logo image */
 .logo img {
-  height: 52px;              /* Professional header size */
-  max-width: 180px;          /* Prevent stretching */
-  object-fit: contain;       /* Keep proportions */
-  transition: transform 0.3s ease, opacity 0.3s ease;
+  height: 64px;              /* Larger, more visible size */
+  max-width: 220px;          /* Prevents stretching */
+  object-fit: contain;       /* Keeps proportions */
 }
 
-/* Subtle hover effect for brand polish */
-.logo img:hover {
-  transform: scale(1.05);
-  opacity: 0.95;
-}
-
-/* Responsive adjustment */
+/* Responsive scaling */
 @media (max-width: 768px) {
   .logo img {
-    height: 40px;
+    height: 48px;            /* Slightly smaller for mobile */
+    max-width: 160px;
   }
 }
-
-
-
 
 
 .brand-red { color: var(--brand-red); }
