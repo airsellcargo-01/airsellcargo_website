@@ -190,6 +190,198 @@ input:focus {
         padding-block: 3rem;
     }
 }
+/* ==========================================================================
+   1. MODERN RESET & DESIGN TOKENS
+   ========================================================================== */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    /* Brand Colors */
+    --brand-red: #dc3545;
+    --brand-yellow: #ffc107;
+    --brand-green: #28a745;
+    --primary-dark: #1e293b;
+    
+    /* Neutral Palette */
+    --light-bg: #f8fafc;
+    --text-main: #1e293b;
+    --text-muted: #64748b;
+    --white: #ffffff;
+    
+    /* UI Elements */
+    --card-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    --radius: 12px;
+    --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    width: 100%;
+    overflow-x: hidden;
+    background-color: var(--light-bg);
+    color: var(--text-main);
+    line-height: 1.6;
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Common Container */
+.container {
+    max-width: 1200px;
+    margin-inline: auto; /* Modern way to do left/right margin auto */
+    padding-inline: 1.25rem;
+}
+
+/* =========================================
+   2. HEADER & NAVIGATION
+   ========================================= */
+/* --- Header & Nav Professional Fix --- */
+header {
+    background: linear-gradient(90deg, #004e92, #000428);
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 4px solid var(--brand-yellow);
+}
+
+.header-flex {
+    display: flex;
+    justify-content: space-between; /* Pushes logo to left, nav to right */
+    align-items: center;           /* Centers them vertically */
+}
+
+.nav-links {
+    display: flex;       /* This makes the links horizontal */
+    list-style: none;    /* THIS REMOVES THE BULLET POINTS */
+    margin: 0;
+    padding: 0;
+    gap: 25px;           /* Space between links */
+}
+
+.nav-links a {
+    color: #ffffff;      /* High contrast white text */
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: var(--brand-yellow);
+}
+
+/* --- Mobile Responsive Settings --- */
+@media (max-width: 768px) {
+    .header-flex {
+        flex-direction: column; /* Stacks logo on top of menu on small screens */
+        gap: 15px;
+    }
+
+    .nav-links {
+        gap: 15px;
+        flex-wrap: wrap;       /* Allows links to wrap if they are too long */
+        justify-content: center;
+    }
+
+    .nav-links a {
+        font-size: 0.9rem;     /* Slightly smaller text for mobile */
+    }
+}
+
+/* =========================================
+   3. COMPONENTS (Hero & Cards)
+   ========================================= */
+.services-hero {
+    background: var(--primary-dark);
+    padding-block: 5rem;
+    color: var(--white);
+    text-align: center;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+    gap: 2rem;
+    margin-top: 2.5rem;
+}
+
+.service-card {
+    background: var(--white);
+    padding: 2.5rem;
+    border-radius: var(--radius);
+    box-shadow: var(--card-shadow);
+    transition: transform var(--transition);
+    border-top: 6px solid transparent;
+}
+
+.service-card:hover {
+    transform: translateY(-8px);
+}
+
+/* Using CSS variables for individual card colors */
+.service-card.red    { border-top-color: var(--brand-red); }
+.service-card.yellow { border-top-color: var(--brand-yellow); }
+.service-card.green  { border-top-color: var(--brand-green); }
+
+/* =========================================
+   4. FORMS & BUTTONS
+   ========================================= */
+input, textarea {
+    width: 100%;
+    padding: 0.875rem;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-family: inherit;
+    transition: border-color var(--transition);
+}
+
+input:focus {
+    outline: none;
+    border-color: var(--brand-green);
+}
+
+.btn-primary {
+    background: var(--brand-green);
+    color: white;
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 8px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background var(--transition);
+}
+
+.btn-primary:hover {
+    background: #218838; /* Slightly darker green */
+}
+
+/* =========================================
+   5. RESPONSIVENESS
+   ========================================= */
+@media (max-width: 768px) {
+    .header-flex {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .nav-links {
+        gap: 1rem;
+        font-size: 0.9rem;
+    }
+
+    .services-hero {
+        padding-block: 3rem;
+    }
+}
 /* Footer Layout */
 footer {
     background: var(--primary-dark);
@@ -238,5 +430,8 @@ footer {
     text-align: center;
     padding-top: 20px;
     font-size: 0.9rem;
+    color: #94a3b8;
+}
+
     color: #94a3b8;
 }
