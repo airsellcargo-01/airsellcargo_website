@@ -88,27 +88,32 @@ nav ul li a.active {
 .logo {
   display: flex;
   align-items: center;
-  padding: 10px 0;
+  padding: 12px 0;
 }
 
 /* Logo image */
 .logo img {
-  height: 64px;              /* Larger, more visible size */
-  max-width: 220px;          /* Prevents stretching */
+  height: 80px;              /* Professional standard size */
+  max-width: 260px;          /* Prevents distortion */
   object-fit: contain;       /* Keeps proportions */
 }
 
-/* Responsive scaling */
-@media (max-width: 768px) {
+/* Retina support: swap to high-res file */
+@media only screen and (-webkit-min-device-pixel-ratio: 2),
+       only screen and (min-resolution: 192dpi) {
   .logo img {
-    height: 48px;            /* Slightly smaller for mobile */
-    max-width: 160px;
+    content: url("logo@2x.png");
+    height: 80px;
   }
 }
 
-
-.brand-red { color: var(--brand-red); }
-.brand-green { color: var(--brand-green); }
+/* Responsive scaling for mobile */
+@media (max-width: 768px) {
+  .logo img {
+    height: 60px;
+    max-width: 200px;
+  }
+}
 
 /* =========================================
    3. HERO & SERVICE CARDS
