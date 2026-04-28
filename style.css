@@ -1,51 +1,58 @@
 /* ==========================================================================
-   1. CROSS-BROWSER RESET & GLOBAL SETTINGS
+   1. MODERN RESET & DESIGN TOKENS
    ========================================================================== */
-* {
+*, *::before, *::after {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    -webkit-box-sizing: border-box; /* Safari/Chrome */
-    -moz-box-sizing: border-box;    /* Firefox */
-    box-sizing: border-box;         /* Standard */
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
 }
 
 :root {
-    --brand-red: #dc3545;    /* Air Cargo / Urgency */
-    --brand-yellow: #ffc107; /* Navigation Highlights */
-    --brand-green: #28a745;  /* Sea Cargo / Success / Tracking */
-    --primary-dark: #1e293b; /* Deep Navy Blue for Airsell Cargo */
+    /* Brand Colors */
+    --brand-red: #dc3545;
+    --brand-yellow: #ffc107;
+    --brand-green: #28a745;
+    --primary-dark: #1e293b;
+    
+    /* Neutral Palette */
     --light-bg: #f8fafc;
-    --text-dark: #1e293b;
+    --text-main: #1e293b;
+    --text-muted: #64748b;
     --white: #ffffff;
+    
+    /* UI Elements */
     --card-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    --radius: 12px;
+    --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-html, body {
+html {
+    scroll-behavior: smooth;
+}
+
+body {
     width: 100%;
-    overflow-x: hidden; /* Prevents shaking on mobile Safari/Firefox */
+    overflow-x: hidden;
     background-color: var(--light-bg);
-    color: var(--text-dark);
+    color: var(--text-main);
     line-height: 1.6;
-    /* Uses the best font available on the user's specific system */
-    font-family: 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    -webkit-font-smoothing: antialiased;
 }
 
+/* Common Container */
 .container {
     max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-    width: 100%;
+    margin-inline: auto; /* Modern way to do left/right margin auto */
+    padding-inline: 1.25rem;
 }
 
 /* =========================================
    2. HEADER & NAVIGATION
    ========================================= */
 header {
-   background: linear-gradient(90deg, #004e92, #000428)
-    padding: 1rem 0;
-    position: -webkit-sticky; /* Safari Support */
+    background: linear-gradient(90deg, #004e92, #000428); /* Fixed Semicolon */
+    padding-block: 1rem;
     position: sticky;
     top: 0;
     z-index: 1000;
@@ -53,234 +60,129 @@ header {
 }
 
 .header-flex {
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
-    -webkit-box-pack: justify;
-    -ms-flex-pack: justify;
     justify-content: space-between;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
     align-items: center;
 }
-/* Navigation links */
-.nav-links a {
-  color: #ffffff;        /* Default text color (white on dark header) */
-  text-decoration: none;
-  font-weight: 500;
-  padding: 0 14px;
-  transition: color 0.3s ease;
-}
 
-/* Active page link */
-.nav-links a.active {
-  color: #f4a261;        /* Accent orange for active page */
-  font-weight: 600;
-}
-
-/* Hover effect */
-.nav-links a:hover {
-  color: #e63946;        /* Brand red on hover */
-}
-
-
-nav ul {
-    display: -webkit-box;
-    display: -ms-flexbox;
+/* Unified Nav Styles */
+.nav-links {
     display: flex;
     list-style: none;
-    gap: 32px;
+    gap: 2rem;
 }
 
-nav ul li a {
-    color: red;
+.nav-links a {
+    color: var(--white);
     text-decoration: none;
     font-weight: 600;
-    -webkit-transition: 0.3s;
-    transition: 0.3s;
+    transition: color var(--transition);
+    padding: 0.5rem;
 }
 
-nav ul li a:hover, 
-nav ul li a.active {
+.nav-links a:hover,
+.nav-links a.active {
     color: var(--brand-yellow);
 }
-/* Logo container */
-.logo {
-  display: flex;
-  align-items: center;
-  padding: 10px 0;
+
+/* Focus states for Keyboard Navigation */
+a:focus-visible, 
+button:focus-visible {
+    outline: 3px solid var(--brand-yellow);
+    outline-offset: 4px;
 }
 
-/* Logo image */
+/* Logo handling */
 .logo img {
-  height: 72px;              /* Standard professional size */
-  max-width: 240px;          /* Prevents distortion */
-  object-fit: contain;       /* Keeps proportions */
-}
-
-/* Retina support: serve larger file but scale down */
-@media only screen and (-webkit-min-device-pixel-ratio: 2),
-       only screen and (min-resolution: 192dpi) {
-  .logo img {
-    content: url("logo@2x.png"); /* High-res version */
-    height: 72px;
-  }
-}
-
-/* Responsive scaling for mobile */
-@media (max-width: 768px) {
-  .logo img {
-    height: 56px;
-    max-width: 180px;
-  }
+    height: 4.5rem; /* ~72px */
+    width: auto;
+    object-fit: contain;
+    display: block;
 }
 
 /* =========================================
-   3. HERO & SERVICE CARDS
+   3. COMPONENTS (Hero & Cards)
    ========================================= */
 .services-hero {
     background: var(--primary-dark);
-    padding: 80px 0;
-    color: white;
+    padding-block: 5rem;
+    color: var(--white);
     text-align: center;
 }
 
 .services-grid {
-    display: -ms-grid;
     display: grid;
-    /* Grid support for Safari and Firefox */
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-    margin-top: 40px;
+    grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+    gap: 2rem;
+    margin-top: 2.5rem;
 }
 
 .service-card {
     background: var(--white);
-    padding: 40px;
-    border-radius: 16px;
+    padding: 2.5rem;
+    border-radius: var(--radius);
     box-shadow: var(--card-shadow);
-    text-align: center;
+    transition: transform var(--transition);
     border-top: 6px solid transparent;
-    -webkit-transition: -webkit-transform 0.3s ease;
-    transition: transform 0.3s ease;
 }
 
 .service-card:hover {
-    -webkit-transform: translateY(-5px);
-    transform: translateY(-5px);
+    transform: translateY(-8px);
 }
 
-.service-card:nth-child(1) { border-top-color: var(--brand-red); }
-.service-card:nth-child(2) { border-top-color: var(--brand-yellow); }
-.service-card:nth-child(3) { border-top-color: var(--brand-green); }
+/* Using CSS variables for individual card colors */
+.service-card.red    { border-top-color: var(--brand-red); }
+.service-card.yellow { border-top-color: var(--brand-yellow); }
+.service-card.green  { border-top-color: var(--brand-green); }
 
 /* =========================================
-   4. TRACKING RESULTS STYLING
+   4. FORMS & BUTTONS
    ========================================= */
-.tracking-result-card {
-    background: white;
-    border-radius: 12px;
-    padding: 30px;
-    max-width: 600px;
-    margin: 40px auto;
-    box-shadow: var(--card-shadow);
-    border-left: 8px solid var(--brand-green);
-}
-
-.status-step {
-    padding: 10px 0 10px 20px;
-    border-left: 2px solid #e2e8f0;
-    margin-left: 10px;
-    color: #94a3b8;
-}
-
-.status-step.completed {
-    border-left-color: var(--brand-green);
-    color: var(--text-dark);
-}
-
-/* =========================================
-   5. CONTACT & FORMS
-   ========================================= */
-.contact-wrapper {
-    display: -ms-grid;
-    display: grid;
-    grid-template-columns: 1.5fr 1fr;
-    gap: 50px;
-    margin-top: 40px;
-}
-
-/* Form inputs styling for all browsers */
-input[type="text"], input[type="email"], textarea {
+input, textarea {
     width: 100%;
-    padding: 14px;
-    margin: 10px 0;
-    border: 1px solid #ddd;
+    padding: 0.875rem;
+    border: 1px solid #cbd5e1;
     border-radius: 8px;
     font-size: 1rem;
-    -webkit-appearance: none; /* Removes Safari default inner shadow */
+    font-family: inherit;
+    transition: border-color var(--transition);
+}
+
+input:focus {
+    outline: none;
+    border-color: var(--brand-green);
 }
 
 .btn-primary {
     background: var(--brand-green);
     color: white;
-    padding: 14px 28px;
+    padding: 1rem 2rem;
     border: none;
     border-radius: 8px;
     font-weight: 700;
     cursor: pointer;
-    -webkit-transition: 0.3s;
-    transition: 0.3s;
+    transition: background var(--transition);
 }
 
 .btn-primary:hover {
-    background: var(--brand-red);
+    background: #218838; /* Slightly darker green */
 }
 
 /* =========================================
-   6. RESPONSIVENESS (Universal Mobile)
+   5. RESPONSIVENESS
    ========================================= */
 @media (max-width: 768px) {
     .header-flex {
         flex-direction: column;
-        gap: 15px;
+        gap: 1rem;
     }
     
-    nav ul {
-        gap: 15px;
-    }
-    
-    .contact-wrapper {
-        grid-template-columns: 1fr;
+    .nav-links {
+        gap: 1rem;
+        font-size: 0.9rem;
     }
 
-    .services-grid {
-        grid-template-columns: 1fr;
+    .services-hero {
+        padding-block: 3rem;
     }
-}
-
-/* =========================================
-   7. FOOTER
-   ========================================= */
-footer {
-    background: var(--primary-dark);
-    color: white;
-    padding: 60px 0 20px;
-    border-top: 4px solid var(--brand-green);
-    margin-top: 80px;
-}
-
-.footer-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 40px;
-}
-
-.footer-bottom {
-    text-align: center;
-    padding-top: 20px;
-    margin-top: 40px;
-    border-top: 1px solid #334155;
-    color: #94a3b8;
-    font-size: 0.85rem;
 }
