@@ -9,6 +9,8 @@
 
 :root {
     /* Brand Colors */
+    --brand-blue-light: #004e92;
+    --brand-blue-dark: #000428;
     --brand-red: #dc3545;
     --brand-yellow: #ffc107;
     --brand-green: #28a745;
@@ -21,7 +23,7 @@
     --white: #ffffff;
     
     /* UI Elements */
-    --card-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    --card-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
     --radius: 12px;
     --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -43,56 +45,74 @@ body {
 .container {
     max-width: 1200px;
     margin-inline: auto;
-    padding-inline: 1.25rem;
+    padding-inline: 1.5rem;
 }
 
 /* =========================================
-   2. HEADER & NAVIGATION (Standardized)
+   2. HEADER & NAVIGATION
    ========================================= */
 header {
-    background: linear-gradient(90deg, #004e92, #000428);
+    background: linear-gradient(90deg, var(--brand-blue-light), var(--brand-blue-dark));
     position: sticky;
     top: 0;
     z-index: 1000;
     border-bottom: 4px solid var(--brand-yellow);
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
 }
 
 .header-flex {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 0; /* Professional breathing room */
+    padding: 12px 0; /* Concise header height */
+}
+
+.logo img {
+    transition: transform var(--transition);
+    display: block;
+}
+
+.logo img:hover {
+    transform: scale(1.03); /* Subtle interactive feel */
 }
 
 .nav-links {
     display: flex;
     list-style: none;
-    margin: 0;
-    padding: 0;
-    gap: 35px; /* Standard professional gap */
+    gap: 30px; /* Professional spacing */
 }
 
 .nav-links a {
-    color: #ffffff;
+    color: var(--white);
     text-decoration: none;
     font-weight: 500;
-    font-size: 1rem;
-    padding: 8px 12px; /* Increased clickable area */
+    font-size: 0.95rem;
+    padding: 10px 5px;
+    position: relative;
     transition: color var(--transition);
-}
-
-.nav-links a.active {
-    color: var(--brand-yellow);
-    border-bottom: 2px solid var(--brand-yellow);
 }
 
 .nav-links a:hover {
     color: var(--brand-yellow);
 }
 
+/* Professional Active State */
+.nav-links a.active {
+    color: var(--brand-yellow);
+}
+
+.nav-links a.active::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--brand-yellow);
+}
+
 /* =========================================
-   3. COMPONENTS (Hero, Welcome & Cards)
+   3. COMPONENTS (Hero & Cards)
    ========================================= */
 .services-hero {
     background: var(--primary-dark);
@@ -101,7 +121,6 @@ header {
     text-align: center;
 }
 
-/* Centralized Welcome Style */
 .welcome-section {
     padding: 80px 0;
     background: var(--white);
@@ -115,17 +134,16 @@ header {
 }
 
 .welcome-section p {
-    font-size: 1.2rem;
-    max-width: 850px;
-    margin: 0 auto; /* Horizontal Center */
-    line-height: 1.8;
+    font-size: 1.15rem;
+    max-width: 800px;
+    margin: 0 auto;
+    color: var(--text-muted);
 }
 
 .services-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
     gap: 2rem;
-    margin-top: 2.5rem;
     padding-bottom: 4rem;
 }
 
@@ -134,12 +152,13 @@ header {
     padding: 2.5rem;
     border-radius: var(--radius);
     box-shadow: var(--card-shadow);
-    transition: transform var(--transition);
-    border-top: 6px solid transparent;
+    transition: all var(--transition);
+    border-top: 5px solid transparent;
 }
 
 .service-card:hover {
-    transform: translateY(-8px);
+    transform: translateY(-10px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.12);
 }
 
 .service-card.red    { border-top-color: var(--brand-red); }
@@ -147,11 +166,10 @@ header {
 .service-card.green  { border-top-color: var(--brand-green); }
 
 /* =========================================
-   4. CONTACT SECTION & FORMS
+   4. CONTACT & FORMS
    ========================================= */
 .contact-section {
     padding: 80px 0;
-    background: #f1f5f9;
 }
 
 .contact-wrapper {
@@ -167,170 +185,115 @@ header {
     box-shadow: var(--card-shadow);
 }
 
-.badge {
-    display: inline-block;
-    padding: 4px 12px;
-    border-radius: 20px;
-    font-size: 0.8rem;
-    font-weight: bold;
-    color: white;
-    margin-bottom: 15px;
-}
-.badge.red { background: var(--brand-red); }
-.badge.green { background: var(--brand-green); }
-
 input, textarea {
     width: 100%;
-    padding: 0.875rem;
+    padding: 0.8rem;
     margin-bottom: 1rem;
-    border: 1px solid #cbd5e1;
+    border: 1px solid #e2e8f0;
     border-radius: 8px;
-    font-size: 1rem;
-    transition: border-color var(--transition);
+    font-family: inherit;
 }
 
 .btn-primary {
     background: var(--brand-green);
     color: white;
-    padding: 1rem 2rem;
+    padding: 0.8rem 2rem;
     border: none;
     border-radius: 8px;
     font-weight: 700;
     cursor: pointer;
-    width: 100%;
-    transition: background var(--transition);
+    transition: opacity var(--transition);
 }
 
 .btn-primary:hover {
-    background: #218838;
+    opacity: 0.9;
 }
 
 /* =========================================
-   5. FOOTER (Global Standard)
-   ========================================= */
-footer {
-    background: var(--primary-dark);
-    color: #ffffff;
-    padding: 60px 0 20px;
-}
-
-.footer-row {
-    display: flex;
-    justify-content: space-between;
-    gap: 40px;
-    padding-bottom: 40px;
-}
-
-.footer-column {
-    flex: 1;
-}
-
-.footer-column h4 {
-    color: var(--white);
-    margin-bottom: 25px;
-    font-size: 1.2rem;
-}
-
-.brand-yellow-text {
-    color: var(--brand-yellow) !important;
-}
-
-.footer-links {
-    list-style: none;
-}
-
-.footer-links li {
-    margin-bottom: 12px;
-}
-
-.footer-links a {
-    color: #cbd5e1;
-    text-decoration: none;
-    transition: color var(--transition);
-}
-
-.footer-links a:hover {
-    color: var(--brand-yellow);
-}
-
-.footer-divider {
-    border: 0;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    margin: 20px 0;
-}
-
-.footer-bottom {
-    text-align: center;
-    font-size: 0.9rem;
-    color: #94a3b8;
-}
-
-/* =========================================
-   6. RESPONSIVENESS
-   ========================================= */
-@media (max-width: 992px) {
-    .contact-wrapper {
-        flex-direction: column;
-    }
-}
-
-@media (max-width: 768px) {
-    .header-flex {
-        flex-direction: column;
-        gap: 1.5rem;
-        text-align: center;
-    }
-    
-    .nav-links {
-        gap: 15px;
-        font-size: 0.9rem;
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-
-    .footer-row {
-        flex-direction: column;
-        text-align: center;
-    }
-}
-/* =========================================
-   7. CALL TO ACTION (CTA) SECTION
+   5. CALL TO ACTION (CTA)
    ========================================= */
 .cta {
-    background: linear-gradient(135deg, #004e92, #000428); /* Matches your header theme */
+    background: linear-gradient(135deg, var(--brand-blue-light), var(--brand-blue-dark));
     color: var(--white);
     padding: 80px 0;
     text-align: center;
 }
 
-.cta h2 {
-    font-size: 2.5rem;
-    margin-bottom: 15px;
-}
+.cta h2 { font-size: 2.2rem; margin-bottom: 1rem; }
 
-.cta p {
-    font-size: 1.2rem;
-    margin-bottom: 35px;
-    opacity: 0.9;
-}
-
-/* Specific button styling for the CTA to make it "Pop" */
 .cta .btn-primary {
     display: inline-block;
-    width: auto; /* Overrides the 100% width from your standard buttons */
-    padding: 1rem 3rem;
     background: var(--brand-yellow);
-    color: var(--primary-dark);
-    text-decoration: none;
-    font-weight: 800;
+    color: var(--brand-blue-dark);
+    border-radius: 50px;
+    padding: 1rem 3rem;
     text-transform: uppercase;
-    letter-spacing: 1px;
-    border-radius: 50px; /* Rounded pill shape for a modern look */
-    transition: transform var(--transition), box-shadow var(--transition);
+    font-weight: 800;
+    margin-top: 1rem;
+    text-decoration: none;
 }
 
-.cta .btn-primary:hover {
-    background: #e5af06;
-    transform: scale(1.05);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+/* =========================================
+   6. FOOTER (Concise & Clean)
+   ========================================= */
+footer {
+    background: var(--primary-dark);
+    color: var(--white);
+    padding: 60px 0 30px; /* Concise height */
+}
+
+.footer-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 50px;
+    margin-bottom: 40px;
+}
+
+.footer-column { flex: 1; }
+
+.footer-column h4 {
+    color: var(--white);
+    margin-bottom: 20px;
+    font-size: 1.1rem;
+    letter-spacing: 0.5px;
+}
+
+.footer-links { list-style: none; }
+
+.footer-links li { margin-bottom: 10px; }
+
+.footer-links a {
+    color: #94a3b8;
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: color var(--transition);
+}
+
+.footer-links a:hover { color: var(--brand-yellow); }
+
+.footer-divider {
+    border: 0;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    margin-bottom: 25px;
+}
+
+.footer-bottom {
+    text-align: center;
+    font-size: 0.85rem;
+    color: #64748b;
+}
+
+/* =========================================
+   7. RESPONSIVENESS
+   ========================================= */
+@media (max-width: 992px) {
+    .contact-wrapper { flex-direction: column; }
+    .footer-row { flex-wrap: wrap; }
+}
+
+@media (max-width: 768px) {
+    .header-flex { flex-direction: column; gap: 1rem; }
+    .nav-links { gap: 15px; flex-wrap: wrap; justify-content: center; }
+    .footer-row { flex-direction: column; text-align: center; gap: 30px; }
+    .welcome-section h2 { font-size: 1.8rem; }
 }
