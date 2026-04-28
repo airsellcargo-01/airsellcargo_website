@@ -50,9 +50,10 @@ body {
 /* =========================================
    2. HEADER & NAVIGATION
    ========================================= */
+/* --- Header & Nav Professional Fix --- */
 header {
-    background: linear-gradient(90deg, #004e92, #000428); /* Fixed Semicolon */
-    padding-block: 1rem;
+    background: linear-gradient(90deg, #004e92, #000428);
+    padding: 1rem 0;
     position: sticky;
     top: 0;
     z-index: 1000;
@@ -61,43 +62,46 @@ header {
 
 .header-flex {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    justify-content: space-between; /* Pushes logo to left, nav to right */
+    align-items: center;           /* Centers them vertically */
 }
 
-/* Unified Nav Styles */
 .nav-links {
-    display: flex;
-    list-style: none;
-    gap: 2rem;
+    display: flex;       /* This makes the links horizontal */
+    list-style: none;    /* THIS REMOVES THE BULLET POINTS */
+    margin: 0;
+    padding: 0;
+    gap: 25px;           /* Space between links */
 }
 
 .nav-links a {
-    color: var(--white);
+    color: #ffffff;      /* High contrast white text */
     text-decoration: none;
-    font-weight: 600;
-    transition: color var(--transition);
-    padding: 0.5rem;
+    font-weight: 500;
+    font-size: 1rem;
+    transition: color 0.3s ease;
 }
 
-.nav-links a:hover,
-.nav-links a.active {
+.nav-links a:hover {
     color: var(--brand-yellow);
 }
 
-/* Focus states for Keyboard Navigation */
-a:focus-visible, 
-button:focus-visible {
-    outline: 3px solid var(--brand-yellow);
-    outline-offset: 4px;
-}
+/* --- Mobile Responsive Settings --- */
+@media (max-width: 768px) {
+    .header-flex {
+        flex-direction: column; /* Stacks logo on top of menu on small screens */
+        gap: 15px;
+    }
 
-/* Logo handling */
-.logo img {
-    height: 4.5rem; /* ~72px */
-    width: auto;
-    object-fit: contain;
-    display: block;
+    .nav-links {
+        gap: 15px;
+        flex-wrap: wrap;       /* Allows links to wrap if they are too long */
+        justify-content: center;
+    }
+
+    .nav-links a {
+        font-size: 0.9rem;     /* Slightly smaller text for mobile */
+    }
 }
 
 /* =========================================
