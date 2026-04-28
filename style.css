@@ -63,6 +63,26 @@ header {
     -ms-flex-align: center;
     align-items: center;
 }
+/* Navigation links */
+.nav-links a {
+  color: #ffffff;        /* Default text color (white on dark header) */
+  text-decoration: none;
+  font-weight: 500;
+  padding: 0 14px;
+  transition: color 0.3s ease;
+}
+
+/* Active page link */
+.nav-links a.active {
+  color: #f4a261;        /* Accent orange for active page */
+  font-weight: 600;
+}
+
+/* Hover effect */
+.nav-links a:hover {
+  color: #e63946;        /* Brand red on hover */
+}
+
 
 nav ul {
     display: -webkit-box;
