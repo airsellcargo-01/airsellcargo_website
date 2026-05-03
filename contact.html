@@ -4,73 +4,46 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-    <title>Contact Our Logistics Experts | Airsell Cargo</title>
+    <title>Contact Our Experts | Airsell Cargo</title>
+    <link rel="stylesheet" href="style.css">
     <style>
         :root {
             --brand-red: #cc0000;
             --brand-green: #008800;
             --brand-yellow: #ffcc00;
-            --primary-navy: #001f3f; 
-            --bg-light: #f1f5f9;
-            --text-main: #1e293b;
-            --text-muted: #64748b;
+            --primary-dark: #001f3f; /* Deep Navy for more trust */
+            --text-gray: #64748b;
+            --card-shadow: 0 10px 30px rgba(0,0,0,0.05);
         }
 
-        body { 
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; 
-            margin: 0; 
-            background: var(--bg-light); 
-            color: var(--text-main);
-            line-height: 1.6;
-        }
-
+        body { font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; margin: 0; background: #f1f5f9; color: #1e293b; }
         .container { max-width: 1200px; margin: auto; padding: 0 24px; }
-
-        /* --- Header: Clean & Trustworthy --- */
-        header { 
-            background: white; 
-            padding: 15px 0; 
-            border-bottom: 3px solid var(--brand-yellow);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-        }
+        
+        /* Fixed Header */
+        header { background: white; padding: 12px 0; border-bottom: 3px solid var(--brand-yellow); }
         .header-flex { display: flex; justify-content: space-between; align-items: center; }
         .nav-links { list-style: none; display: flex; gap: 25px; margin: 0; }
-        .nav-links a { 
-            text-decoration: none; 
-            color: var(--primary-navy); 
-            font-weight: 700; 
-            text-transform: uppercase; 
-            font-size: 0.8rem;
-            letter-spacing: 0.5px;
-        }
+        .nav-links a { text-decoration: none; color: var(--primary-dark); font-weight: 600; text-transform: uppercase; font-size: 0.85rem; transition: 0.3s; }
         .nav-links a.active { color: var(--brand-red); border-bottom: 2px solid var(--brand-red); padding-bottom: 5px; }
 
-        /* --- Hero: Authoritative Tone --- */
+        /* Authoritative Hero */
         .hero-banner { 
-            background: linear-gradient(rgba(0, 31, 63, 0.9), rgba(0, 31, 63, 0.8)), url('cargo-bg.jpg');
+            background: linear-gradient(rgba(0, 31, 63, 0.85), rgba(0, 31, 63, 0.85)), url('cargo-bg.jpg');
             background-size: cover;
             background-position: center;
             color: white; 
             padding: 100px 0; 
+            text-align: left; /* Shifted to left for modern feel */
         }
         .hero-banner h1 { font-size: 3rem; margin: 0 0 15px; font-weight: 800; line-height: 1.1; }
-        .hero-banner p { 
-            font-size: 1.2rem; 
-            opacity: 0.9; 
-            max-width: 700px; 
-            border-left: 4px solid var(--brand-red); 
-            padding-left: 20px; 
-        }
+        .hero-banner p { font-size: 1.2rem; opacity: 0.9; max-width: 700px; border-left: 4px solid var(--brand-red); padding-left: 20px; }
 
-        /* --- Main Layout Grid --- */
+        /* Professional Grid */
         .contact-grid { 
             display: grid; 
             grid-template-columns: 1.2fr 0.8fr; 
-            gap: 40px; 
-            margin-top: -60px; 
+            gap: 30px; 
+            margin-top: -60px; /* Stronger overlap */
             padding-bottom: 80px;
         }
 
@@ -78,67 +51,37 @@
             background: white; 
             padding: 45px; 
             border-radius: 16px; 
-            box-shadow: 0 10px 30px rgba(0,0,0,0.08); 
+            box-shadow: var(--card-shadow); 
         }
 
-        /* --- Contact Methods: Dual WhatsApp Strategy --- */
-        .contact-method { margin-bottom: 30px; }
-        .dept-label { 
-            display: block; 
-            font-weight: 800; 
-            text-transform: uppercase; 
-            font-size: 0.75rem; 
-            color: var(--text-muted); 
-            letter-spacing: 1px; 
-            margin-bottom: 8px; 
-        }
-        .phone-link { 
-            font-size: 1.8rem; 
-            color: #0f172a; 
-            text-decoration: none; 
-            font-weight: 800; 
-            display: inline-block;
-        }
-        .phone-link:hover { color: var(--brand-red); }
-        
-        .status-tag {
-            font-size: 0.85rem;
-            font-weight: 600;
-            color: var(--brand-green);
-            margin: 5px 0 0;
-            display: flex;
-            align-items: center;
-            gap: 5px;
-        }
+        .contact-method { margin-bottom: 40px; }
+        .contact-method label { display: block; font-weight: 800; text-transform: uppercase; font-size: 0.75rem; color: var(--text-gray); letter-spacing: 1px; margin-bottom: 10px; }
+        .contact-method a { font-size: 1.8rem; color: #0f172a; text-decoration: none; font-weight: 800; transition: color 0.3s; }
+        .contact-method a:hover { color: var(--brand-red); }
 
-        /* --- Sidebar: Advantage & Hours --- */
+        /* High Visibility Box */
         .advantage-box {
-            background: var(--primary-navy);
+            background: var(--primary-dark);
             color: white;
             padding: 40px;
             border-radius: 16px;
             border-bottom: 6px solid var(--brand-green);
-            margin-bottom: 30px;
         }
         .advantage-tag { background: var(--brand-green); color: white; padding: 4px 12px; font-size: 0.7rem; font-weight: bold; border-radius: 4px; display: inline-block; margin-bottom: 15px; }
 
-        .hours-box {
-            background: white;
-            padding: 30px;
-            border-radius: 16px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-        }
+        /* Footer */
+        .site-footer { background: var(--primary-dark); color: white; padding: 80px 0 40px; }
+        .footer-row { display: grid; grid-template-columns: 2fr 1fr 1.5fr; gap: 60px; }
+        .footer-column h4 { color: var(--brand-yellow); margin-bottom: 25px; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 1.5px; }
+        .footer-links { list-style: none; padding: 0; }
+        .footer-links li { margin-bottom: 15px; }
+        .footer-links a { color: #94a3b8; text-decoration: none; transition: 0.3s; }
+        .footer-links a:hover { color: white; }
 
-        /* --- Footer --- */
-        footer { background: var(--primary-navy); color: white; padding: 80px 0 40px; }
-        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1.5fr; gap: 60px; }
-        .footer-h4 { color: var(--brand-yellow); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 25px; }
-        
         @media (max-width: 900px) {
-            .contact-grid, .footer-grid { grid-template-columns: 1fr; }
-            .hero-banner { text-align: center; }
-            .hero-banner p { border: none; padding: 0; margin: auto; }
-            .phone-link { font-size: 1.5rem; }
+            .contact-grid, .footer-row { grid-template-columns: 1fr; }
+            .hero-banner { text-align: center; padding: 70px 0; }
+            .hero-banner p { border: none; padding: 0; }
         }
     </style>
 </head>
@@ -150,6 +93,7 @@
         <nav>
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
                 <li><a href="services.html">Services</a></li>
                 <li><a href="tracking.html">Tracking</a></li>
                 <li><a href="contact.html" class="active">Contact</a></li>
@@ -161,53 +105,48 @@
 <main>
     <section class="hero-banner">
         <div class="container">
-            <h1>Logistics Experts <br><span style="color:var(--brand-yellow)">At Your Service</span></h1>
-            <p>Direct communication lines for freight forwarding, Berbera Port clearance, and HGA Airport cargo handling.</p>
+            <h1>Expert Logistics <br><span style="color:var(--brand-yellow)">Support Desk</span></h1>
+            <p>Direct access to our senior coordinators for freight, customs, and global forwarding queries.</p>
         </div>
     </section>
 
     <div class="container">
         <div class="contact-grid">
             
-            <!-- Left Column: Communication -->
             <div class="info-card" style="border-top: 6px solid var(--brand-red);">
-                <h2 style="font-size: 2rem; margin-top: 0; color: var(--primary-navy);">Direct Channels</h2>
-                <p style="color: var(--text-muted); margin-bottom: 40px;">Select the department relevant to your inquiry for faster processing.</p>
+                <h2 style="font-size: 2rem; margin-top: 0;">Direct Support</h2>
+                <p style="color: var(--text-gray); margin-bottom: 45px;">Reach out to our Hargeisa logistics desk directly for immediate assistance or rates.</p>
 
-                <div class="contact-method" style="background: #f8fafc; padding: 25px; border-radius: 12px; border-left: 4px solid var(--brand-red);">
-                    <span class="dept-label">Operations & Support (WhatsApp)</span>
-                    <a href="https://wa.me/252638079991" class="phone-link">+252 63 807 9991</a>
-                    <p class="status-tag">● Live: Tracking & Customs Support</p>
+            
+                  <!-- Support Line 2: New Sales Line -->
+    <div class="contact-method" style="background: #f8fafc; padding: 20px; border-radius: 12px; border-left: 4px solid var(--brand-yellow); margin-bottom: 25px;">
+        <label>Sales & Rate Inquiries (WhatsApp)</label>
+        <a href="https://wa.me/252634823310" target="_blank" style="font-size: 1.6rem; color: #0f172a; text-decoration: none; font-weight: 800;">
+            +252 63 482 3310
+        </a>
+        <p style="margin: 5px 0 0; color: var(--brand-green); font-size: 0.85rem; font-weight: 600;">✓ Online for New Quotes</p>
+    </div>
+                 <div class="contact-method">
+                    <a href="tel:+252638079991">+252 63 807 9991</a>
+                    <p style="margin: 8px 0 0; color: var(--brand-green); font-weight: 600;">Available Sat – Thu: 8:00 AM – 5:00 PM</p>
                 </div>
 
-                <div class="contact-method" style="background: #f8fafc; padding: 25px; border-radius: 12px; border-left: 4px solid var(--brand-yellow);">
-                    <span class="dept-label">Sales & New Quotes (WhatsApp)</span>
-                    <a href="https://wa.me/252634823310" class="phone-link">+252 63 482 3310</a>
-                    <p class="status-tag">● Live: Rates & Bookings</p>
-                </div>
-
-                <div class="contact-method" style="margin-top: 40px;">
-                    <span class="dept-label">Official Email</span>
-                    <a href="mailto:contact@airsellcargo.com" style="font-size: 1.4rem; color: var(--primary-navy); font-weight: 700;">contact@airsellcargo.com</a>
+                <div class="contact-method">
+                    <label>Email Enquiries</label>
+                    <a href="mailto:contact@airsellcargo.com" style="font-size: 1.4rem;">contact@airsellcargo.com</a>
                 </div>
             </div>
 
-            <!-- Right Column: Location & Hours -->
             <div class="sidebar">
                 <div class="advantage-box">
-                    <span class="advantage-tag">STRATEGIC ADVANTAGE</span>
-                    <h3 style="color: var(--brand-yellow); margin-top: 0;">On-Site Presence</h3>
-                    <p style="font-size: 0.95rem; opacity: 0.9;">We maintain a direct presence at <strong>Berbera Port</strong> and <strong>Hargeisa Airport</strong>, allowing us to expedite customs clearance faster than standard agencies.</p>
-                    <hr style="border: 0; border-top: 1px solid rgba(255,255,255,0.1); margin: 20px 0;">
-                    <p style="font-size: 0.9rem;">📍 Airsell Cargo Building, Main Road<br>Hargeisa, Somaliland</p>
+                    <span class="advantage-tag">STRATEGIC ACCESS</span>
+                    <h3 style="color: var(--brand-yellow); margin-top: 0;">Operational Advantage</h3>
+                    <p style="line-height: 1.6; opacity: 0.9;">Our office is specifically positioned for the <strong>Berbera Port Corridor</strong> and <strong>HGA Airport</strong> customs clearance, ensuring prioritized handling for your cargo.</p>
+                    <hr style="border: 0; border-top: 1px solid rgba(255,255,255,0.1); margin: 25px 0;">
+                    <p style="font-size: 0.95rem;">📍 Airsell Cargo Building, Main Road<br>Hargeisa, Somaliland</p>
                 </div>
-
-                <div class="hours-box">
-                    <span class="dept-label">Business Hours</span>
-                    <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.9rem; font-weight: 600;">
-                        <li style="display: flex; justify-content: space-between; margin-bottom: 8px;"><span>Sat – Thu:</span> <span>08:00 – 17:00</span></li>
-                        <li style="display: flex; justify-content: space-between; color: var(--brand-red);"><span>Friday:</span> <span>Closed</span></li>
-                    </ul>
+                <div style="text-align: center; margin-top: 25px;">
+                    <a href="#" style="color: var(--primary-dark); font-weight: 700; text-decoration: underline;">Open Google Maps Directions</a>
                 </div>
             </div>
 
@@ -215,22 +154,33 @@
     </div>
 </main>
 
-<footer>
-    <div class="container footer-grid">
-        <div>
-            <h4 class="footer-h4">Airsell Cargo</h4>
-            <p style="font-size: 0.9rem; color: #94a3b8;">Connecting Somaliland to global trade routes with efficiency and digital transparency.</p>
+<footer class="site-footer">
+    <div class="container footer-row">
+        <div class="footer-column">
+            <h4>Airsell Cargo</h4>
+            <p style="font-size: 0.95rem; line-height: 1.7; color: #94a3b8;">Hargeisa's premier freight forwarding partner, connecting Somaliland to the global market with speed, security, and digital transparency.</p>
         </div>
-        <div>
-            <h4 class="footer-h4">Quick Links</h4>
-            <ul style="list-style: none; padding:0; font-size: 0.9rem;">
-                <li style="margin-bottom: 10px;"><a href="#" style="color: #94a3b8; text-decoration: none;">Track Shipment</a></li>
-                <li style="margin-bottom: 10px;"><a href="#" style="color: #94a3b8; text-decoration: none;">Get a Quote</a></li>
+        <div class="footer-column">
+            <h4>Quick Links</h4>
+            <ul class="footer-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="services.html">Our Services</a></li>
+                <li><a href="tracking.html">Track Shipment</a></li>
             </ul>
         </div>
-        <div>
-            <h4 class="footer-h4">HQ Address</h4>
-            <p style="font-size: 0.9rem; color: #94a3b8;">Main Road, Hargeisa<br>Republic of Somaliland</p>
+        <div class="footer-column">
+            <h4>Connect Directly</h4>
+            <div style="color: #cbd5e1; font-size: 0.95rem; line-height: 2;">
+                📍 Main Office: Hargeisa, Somaliland<br>
+                📞 <a href="tel:+252638079991" style="color: white; font-weight: bold;">+252-63-807-9991</a><br>
+                📧 <a href="mailto:contact@airsellcargo.com" style="color: white; font-weight: bold;">contact@airsellcargo.com</a>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div style="border-top: 1px solid rgba(255,255,255,0.05); margin-top: 50px; padding-top: 30px; text-align: center; color: #64748b; font-size: 0.8rem;">
+            &copy; 2026 Airsell Cargo. All rights reserved. | Logistics Excellence for East Africa.
         </div>
     </div>
 </footer>
