@@ -44,73 +44,48 @@
     </div>
 </header>
     <main>
-        <section class="services-hero">
-            <div class="container">
-                <h1>Contact Our Logistics Team</h1>
-                <p>Expert support for your cargo needs in Hargeisa and beyond.</p>
-            </div>
-        </section>
-        <section style="padding: 60px 0;">
-            <div class="container">
-                <div class="contact-wrapper">
+       <div class="contact-wrapper" style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px;">
 
-                    <div class="contact-form-container" style="background: white; padding: 40px; border-radius: 12px; box-shadow: var(--card-shadow);">
-                        <h2 style="color: var(--primary-dark); margin-top: 0;">Get a Quote</h2>
-                        <p style="margin-bottom: 25px; color: #64748b;">Send us your shipment details and our team will get back to you within 24 hours.</p>
-                        
-<!-- The 'action' must match your PHP filename exactly -->
-<form action="contact_process.php" method="POST">
-    
-    <label>Full Name:</label>
-    <input type="text" name="name" required>
+    <!-- Left Column: Primary Contact Methods -->
+    <div class="contact-methods">
+        <h2 style="color: var(--primary-dark); margin-top: 0;">Direct Support</h2>
+        <p style="margin-bottom: 25px; color: #64748b;">Reach out to our Hargeisa logistics desk directly for immediate assistance or quotes.</p>
 
-    <label>Email Address:</label>
-    <input type="email" name="email" required>
+        <!-- Phone Card -->
+        <div class="info-item" style="background: white; padding: 25px; border-radius: 8px; margin-bottom: 20px; box-shadow: var(--card-shadow); border-top: 4px solid #cc0000;">
+            <strong style="display: block; font-size: 1.1rem; margin-bottom: 10px;">📞 Call or WhatsApp</strong>
+            <a href="tel:+252638079991" style="font-size: 1.4rem; color: #cc0000; text-decoration: none; font-weight: bold;">+252 63 807 9991</a>
+            <p style="margin: 5px 0 0; font-size: 0.9rem; color: #64748b;">Available Sat – Thu: 8:00 AM – 5:00 PM</p>
+        </div>
 
-    <label>Phone Number:</label>
-    <input type="text" name="phone" required>
+        <!-- Email Card -->
+        <div class="info-item" style="background: white; padding: 25px; border-radius: 8px; margin-bottom: 20px; box-shadow: var(--card-shadow); border-top: 4px solid #008800;">
+            <strong style="display: block; font-size: 1.1rem; margin-bottom: 10px;">📧 Email Inquiries</strong>
+            <a href="mailto:sales@airsellcargo.com" style="font-size: 1.2rem; color: var(--primary-dark); text-decoration: none; border-bottom: 2px dotted #ccc;">sales@airsellcargo.com</a>
+            <p style="margin: 10px 0 0; font-size: 0.9rem; color: #64748b;">For rate requests and documentation.</p>
+        </div>
+    </div>
 
-    <label>Service Type:</label>
-    <select name="service_type" required>
-        <option value="Freight Forwarding">Freight Forwarding</option>
-        <option value="Cargo Handling">Cargo Handling</option>
-        <option value="Logistics Consulting">Logistics Consulting</option>
-    </select>
+    <!-- Right Column: Location & Operations -->
+    <div class="location-details">
+        <h2 style="color: var(--primary-dark); margin-top: 0;">Our Hub</h2>
+        
+        <div class="info-item" style="background: #f8fafc; padding: 20px; border-radius: 8px; margin-bottom: 15px; border: 1px solid #e2e8f0;">
+            <strong>📍 Hargeisa HQ</strong>
+            <p style="margin: 5px 0 0;">Airsell Cargo Building, Main Road<br>Hargeisa, Somaliland</p>
+        </div>
 
-    <label>Subject:</label>
-    <input type="text" name="subject" required>
+        <div style="background: var(--primary-dark); color: white; padding: 25px; border-radius: 8px; border-bottom: 5px solid #008800; margin-top: 20px;">
+            <strong style="color: #ffcc00; text-transform: uppercase; font-size: 0.8rem;">Operational Advantage</strong>
+            <p style="margin-top: 10px; font-size: 0.95rem; line-height: 1.5;">Our office is strategically positioned for the **Berbera Port Corridor** and **HGA Airport** customs clearance, ensuring your cargo moves without delay.</p>
+        </div>
+        
+        <div style="margin-top: 20px; text-align: center;">
+            <a href="https://maps.google.com" target="_blank" style="color: #64748b; font-size: 0.9rem; text-decoration: underline;">View on Google Maps</a>
+        </div>
+    </div>
 
-    <label>Cargo Details:</label>
-    <textarea name="details" required></textarea>
-
-    <button type="submit" style="background-color: #cc0000; color: white;">Send Inquiry</button>
-</form>
-
-                    </div>
-                    
-                    <div class="contact-info-container">
-                        <h2 style="color: var(--primary-dark); margin-top: 0;">Hargeisa Headquarters</h2>
-                        <div class="info-item" style="background: white; padding: 20px; border-radius: 8px; margin-bottom: 15px; box-shadow: var(--card-shadow); border-left: 4px solid var(--brand-red);">
-                            <strong>📍 Address</strong>
-                            <p style="margin: 5px 0 0;">Airsell Cargo Building, Main Road, Hargeisa</p>
-                        </div>
-                        <div class="info-item" style="background: white; padding: 20px; border-radius: 8px; margin-bottom: 15px; box-shadow: var(--card-shadow); border-left: 4px solid var(--brand-green);">
-                            <strong>📧 Email</strong>
-                            <p style="margin: 5px 0 0;">sales@airsellcargo.com</p>
-                        </div>
-                        <div class="info-item" style="background: white; padding: 20px; border-radius: 8px; margin-bottom: 15px; box-shadow: var(--card-shadow); border-left: 4px solid var(--brand-yellow);">
-                            <strong>⏰ Business Hours</strong>
-                            <p style="margin: 5px 0 0;">Sat – Thu: 8:00 AM – 5:00 PM</p>
-                        </div>
-                        <div style="background: var(--primary-dark); color: white; padding: 25px; border-radius: 8px; border-bottom: 5px solid var(--brand-green); margin-top: 25px;">
-                            <strong style="color: var(--brand-yellow); text-transform: uppercase; font-size: 0.8rem;">Strategic Access</strong>
-                            <p style="margin-top: 10px; font-size: 0.95rem; line-height: 1.4;">Directly connected to the Berbera Port Corridor and Hargeisa (HGA) Airport customs for prioritized handling.</p>
-                        </div>
-                    </div>
-
-                </div> 
-            </div>
-        </section>
+</div>
     </main>
 
    <footer class="site-footer">
