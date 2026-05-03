@@ -26,34 +26,41 @@
         .nav-links a { text-decoration: none; color: var(--primary-dark); font-weight: 600; text-transform: uppercase; font-size: 0.85rem; transition: 0.3s; }
         .nav-links a.active { color: var(--brand-red); border-bottom: 2px solid var(--brand-red); padding-bottom: 5px; }
 
-        /* Authoritative Hero */
-        .hero-banner { 
-            background: linear-gradient(rgba(0, 31, 63, 0.85), rgba(0, 31, 63, 0.85)), url('cargo-bg.jpg');
-            background-size: cover;
-            background-position: center;
-            color: white; 
-            padding: 100px 0; 
-            text-align: left; /* Shifted to left for modern feel */
+   /* Update these properties in your .hero-banner class */
+.hero-banner { 
+    text-align: center; /* Centralizes text */
+    padding: 100px 0; 
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centralizes content within flex container */
+    justify-content: center;
+}
+
+.hero-banner p { 
+    margin: 20px auto 0; /* Centers the paragraph and border */
+    border-left: none; /* Removing the left border for a centralized look */
+    border-top: 4px solid var(--brand-red); /* Adding a top border instead */
+    padding-top: 15px;
+    padding-left: 0;
+}
         }
         .hero-banner h1 { font-size: 3rem; margin: 0 0 15px; font-weight: 800; line-height: 1.1; }
         .hero-banner p { font-size: 1.2rem; opacity: 0.9; max-width: 700px; border-left: 4px solid var(--brand-red); padding-left: 20px; }
+/* Apply these updates to your layout */
+.contact-grid { 
+    display: grid; 
+    grid-template-columns: 1fr 1fr; /* Two equal columns */
+    gap: 30px; 
+    align-items: stretch; /* CRITICAL: Forces cards to be the same height */
+    margin-top: -60px; 
+}
 
-        /* Professional Grid */
-        .contact-grid { 
-            display: grid; 
-            grid-template-columns: 1.2fr 0.8fr; 
-            gap: 30px; 
-            margin-top: -60px; /* Stronger overlap */
-            padding-bottom: 80px;
-        }
-
-        .info-card { 
-            background: white; 
-            padding: 45px; 
-            border-radius: 16px; 
-            box-shadow: var(--card-shadow); 
-        }
-
+.info-card, .advantage-box {
+    height: 100%; /* Ensures both boxes fill the grid cell height */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Keeps buttons/links at the bottom */
+}
         .contact-method { margin-bottom: 40px; }
         .contact-method label { display: block; font-weight: 800; text-transform: uppercase; font-size: 0.75rem; color: var(--text-gray); letter-spacing: 1px; margin-bottom: 10px; }
         .contact-method a { font-size: 1.8rem; color: #0f172a; text-decoration: none; font-weight: 800; transition: color 0.3s; }
