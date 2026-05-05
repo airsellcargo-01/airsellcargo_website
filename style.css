@@ -52,7 +52,8 @@ body {
    2. HEADER & NAVIGATION
    ========================================= */
 header {
-    background: linear-gradient(90deg, var(--brand-blue-light), var(--brand-blue-dark));
+   background: #ffffff;
+    border-top: 5px solid var(--brand-blue-dark);
     position: sticky;
     top: 0;
     z-index: 1000;
