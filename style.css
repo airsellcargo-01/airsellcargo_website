@@ -52,8 +52,7 @@ body {
    2. HEADER & NAVIGATION
    ========================================= */
 header {
-   background: #ffffff;
-    border-top: 5px solid var(--brand-blue-dark);
+   background: var(--white);
     position: sticky;
     top: 0;
     z-index: 1000;
