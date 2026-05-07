@@ -63,7 +63,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 8px 0; /* Concise header height */
+    padding: 6px 0; /* Concise header height */
 }
 
 .logo img {
