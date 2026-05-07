@@ -19,14 +19,12 @@
         body { font-family: 'Segoe UI', Roboto, Arial, sans-serif; margin: 0; background: #f1f5f9; color: #1e293b; line-height: 1.6; }
         .container { max-width: 1200px; margin: auto; padding: 0 24px; }
         
-      header {
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(10px); /* Blurs the content behind the header */
-    padding: 15px 0;
-    border-bottom: 3px solid var(--brand-yellow);
-    position: sticky;
+header {
+   background: var(--white);
     top: 0;
     z-index: 1000;
+    border-bottom: 4px solid var(--brand-yellow);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
 }
         .header-flex { display: flex; justify-content: space-between; align-items: center; }
         .nav-links { list-style: none; display: flex; gap: 25px; margin: 0; }
