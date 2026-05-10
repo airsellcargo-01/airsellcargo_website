@@ -296,3 +296,6 @@ footer {
     .footer-row { flex-direction: column; text-align: center; gap: 30px; }
     .welcome-section h2 { font-size: 1.8rem; }
 }
+html {
+  scroll-behavior: smooth;
+}
