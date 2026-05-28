@@ -5,6 +5,8 @@
     "CustomerName": "Ali Ahmed",
     "Origin": "Hargeisa",
     "Destination": "Dubai",
+    "OriginCode": "HGA",
+    "DestinationCode": "DXB",
     "CargoType": "General Cargo",
     "WeightKg": 1200,
     "Status": "In Transit",
@@ -18,11 +20,26 @@
       "invoice.pdf"
     ],
     "Notes": "Handle with care",
+    "Carrier": {
+      "CarrierID": "ET-001",
+      "CarrierName": "Ethiopian Airlines",
+      "ServiceType": "Air Freight",
+      "AirWayBillNumber": "ET-2026-051200",
+      "FlightNumber": "ET501",
+      "DepartureTime": "2026-05-29T14:30:00",
+      "ArrivalTime": "2026-06-02T08:15:00",
+      "RatePerKg": 12.50,
+      "TotalCost": 15000.00,
+      "Currency": "USD",
+      "PaymentStatus": "Pending",
+      "ContactEmail": "cargo@ethiopianairlines.com",
+      "ContactPhone": "+251-11-517-7000"
+    },
     "Timeline": [
-      { "step": "Booked - Hargeisa (HGA)", "status": "completed" },
-      { "step": "In Transit - Ethiopian Cargo", "status": "completed" },
-      { "step": "Arrived at Hub (Dubai DXB)", "status": "active" },
-      { "step": "Final Delivery", "status": "pending" }
+      { "step": "Booked - Hargeisa (HGA)", "status": "completed", "date": "2026-05-28" },
+      { "step": "In Transit - Ethiopian Airlines ET501", "status": "completed", "date": "2026-05-29" },
+      { "step": "Arrived at Hub (Dubai DXB)", "status": "active", "date": "2026-06-02" },
+      { "step": "Final Delivery", "status": "pending", "date": "2026-06-02" }
     ]
   },
   {
@@ -30,6 +47,8 @@
     "CustomerName": "Hodan Ismail",
     "Origin": "Berbera",
     "Destination": "Jeddah",
+    "OriginCode": "BBO",
+    "DestinationCode": "JED",
     "CargoType": "Livestock",
     "WeightKg": 5000,
     "Status": "Pending",
@@ -37,14 +56,31 @@
     "BookingDate": "2026-05-28",
     "ExpectedArrival": "2026-06-02",
     "Documents": [
-      "export_permit.pdf"
+      "export_permit.pdf",
+      "veterinary_certificate.pdf"
     ],
     "Notes": "Requires veterinary clearance",
+    "Carrier": {
+      "CarrierID": "ET-002",
+      "CarrierName": "Ethiopian Airlines",
+      "ServiceType": "Air Freight - Live Animals",
+      "AirWayBillNumber": "ET-2026-051205",
+      "FlightNumber": "ET503",
+      "DepartureTime": "2026-05-29T18:00:00",
+      "ArrivalTime": "2026-06-02T11:45:00",
+      "RatePerKg": 15.00,
+      "TotalCost": 75000.00,
+      "Currency": "USD",
+      "PaymentStatus": "Pending",
+      "SpecialRequirements": "Temperature controlled container, Live animal handling",
+      "ContactEmail": "cargo@ethiopianairlines.com",
+      "ContactPhone": "+251-11-517-7000"
+    },
     "Timeline": [
-      { "step": "Booking Confirmed", "status": "completed" },
-      { "step": "Awaiting Veterinary Clearance", "status": "active" },
-      { "step": "Loading & Departure", "status": "pending" },
-      { "step": "Final Delivery", "status": "pending" }
+      { "step": "Booking Confirmed", "status": "completed", "date": "2026-05-28" },
+      { "step": "Awaiting Veterinary Clearance", "status": "active", "date": "2026-05-28" },
+      { "step": "Loading & Departure on ET503", "status": "pending", "date": "2026-05-29" },
+      { "step": "Final Delivery", "status": "pending", "date": "2026-06-02" }
     ]
   }
 ]
