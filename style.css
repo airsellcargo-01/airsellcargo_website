@@ -122,16 +122,16 @@ header {
 }
 
 .services-hero h1 {
-    font-size: 2.8rem;
+    font-size: 2.5rem;
     margin-bottom: 1rem;
-    font-weight: 800;
+    font-weight: 700;
 }
 
 .services-hero p {
-    font-size: 1.2rem;
-    max-width: 700px;
+    font-size: 1rem;
+    max-width: 600px;
     margin: 0 auto 2rem;
-    opacity: 0.95;
+    opacity: 0.85;
 }
 
 .cta-btn {
