@@ -6,7 +6,7 @@
  * variables directly in your hosting panel.
  *
  * Example environment variables:
- * AIRSELL_SMTP_HOST=smtp.example.com
+ * AIRSELL_SMTP_HOST=smtp.airsellcargo.com
  * AIRSELL_SMTP_PORT=587
  * AIRSELL_SMTP_USER=your-smtp-user
  * AIRSELL_SMTP_PASS=your-smtp-password
